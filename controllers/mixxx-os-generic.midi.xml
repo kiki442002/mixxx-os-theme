@@ -24,6 +24,9 @@
   <controller id="mixxx-os-generic">
     <scriptfiles>
       <file functionprefix="MixxxOSGeneric" filename="mixxx-os-generic-script.js"/>
+      <file filename="mixxx-os-pioneer-script.js"/>
+      <file filename="mixxx-os-hercules-script.js"/>
+      <file filename="mixxx-os-numark-script.js"/>
     </scriptfiles>
     <controls>
 

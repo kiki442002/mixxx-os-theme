@@ -1,80 +1,20 @@
 // =============================================================================
-// Mixxx OS Generic Controller Script
-// Supports:
-//   Preset 0 – Pioneer DDJ-400 / FLX4 / DDJ-200
-//   Preset 1 – Hercules Inpulse 300 / 500
-//   Preset 2 – Numark Mixtrack Platinum FX
+// Mixxx OS Generic Controller – MANAGER
+// Handles: init/shutdown, preset selection, LED dispatch, jog wheels,
+//          radio buttons, deck selector.
 //
-// The active preset is read from [Skin],controller_preset (set via the skin
-// Config tab). Changing the preset live re-sends LED state to the new device.
+// Each controller registers its profile via:
+//   MixxxOSGeneric.registerPreset(index, profile)
+// Profiles are defined in their own script files loaded after this one.
 // =============================================================================
 
 var MixxxOSGeneric = {};
 
-// -----------------------------------------------------------------------------
-// Preset definitions
-// -----------------------------------------------------------------------------
-MixxxOSGeneric.PRESETS = {
-    0: {
-        name: "Pioneer DDJ-400/FLX4/DDJ-200",
-        jogResolution: 720,
-        jogRpm: 33 + 1/3,
-        jogAlpha: 1/8,
-        jogBeta: (1/8) / 32,
-        bendScale: 0.8,
-        leds: {
-            ch1: {
-                play: { status: 0x90, note: 0x0B },
-                cue:  { status: 0x90, note: 0x0C },
-                sync: { status: 0x90, note: 0x58 }
-            },
-            ch2: {
-                play: { status: 0x91, note: 0x0B },
-                cue:  { status: 0x91, note: 0x0C },
-                sync: { status: 0x91, note: 0x58 }
-            }
-        }
-    },
-    1: {
-        name: "Hercules Inpulse 300/500",
-        jogResolution: 128,
-        jogRpm: 33 + 1/3,
-        jogAlpha: 1/8,
-        jogBeta: (1/8) / 32,
-        bendScale: 0.5,
-        leds: {
-            ch1: {
-                play: { status: 0x91, note: 0x07 },
-                cue:  { status: 0x91, note: 0x06 },
-                sync: { status: 0x91, note: 0x05 }
-            },
-            ch2: {
-                play: { status: 0x92, note: 0x07 },
-                cue:  { status: 0x92, note: 0x06 },
-                sync: { status: 0x92, note: 0x05 }
-            }
-        }
-    },
-    2: {
-        name: "Numark Mixtrack Platinum FX",
-        jogResolution: 128,
-        jogRpm: 33 + 1/3,
-        jogAlpha: 1/8,
-        jogBeta: (1/8) / 32,
-        bendScale: 0.5,
-        leds: {
-            ch1: {
-                play: { status: 0x90, note: 0x00 },
-                cue:  { status: 0x90, note: 0x01 },
-                sync: { status: 0x90, note: 0x02 }
-            },
-            ch2: {
-                play: { status: 0x91, note: 0x00 },
-                cue:  { status: 0x91, note: 0x01 },
-                sync: { status: 0x91, note: 0x02 }
-            }
-        }
-    }
+// Registry populated by per-controller scripts
+MixxxOSGeneric.PRESETS = {};
+
+MixxxOSGeneric.registerPreset = function(idx, profile) {
+    MixxxOSGeneric.PRESETS[idx] = profile;
 };
 
 // -----------------------------------------------------------------------------
@@ -103,7 +43,7 @@ MixxxOSGeneric.init = function(id) {
     // Deck selector buttons – cut crossfader to deck 1 or 2
     var d1 = engine.makeConnection("[Skin]", "select_deck_1", function(v) { if (v > 0) MixxxOSGeneric.cutToDeck(1); });
     var d2 = engine.makeConnection("[Skin]", "select_deck_2", function(v) { if (v > 0) MixxxOSGeneric.cutToDeck(2); });
-    var cf = engine.makeConnection("[Master]",  "crossfader",    MixxxOSGeneric.onCrossfaderChange);
+    var cf = engine.makeConnection("[Master]", "crossfader", MixxxOSGeneric.onCrossfaderChange);
     if (d1) { MixxxOSGeneric.connections.push(d1); }
     if (d2) { MixxxOSGeneric.connections.push(d2); }
     if (cf) { MixxxOSGeneric.connections.push(cf); }
@@ -118,9 +58,7 @@ MixxxOSGeneric.init = function(id) {
         if (c3) { MixxxOSGeneric.connections.push(c3); }
     }
 
-    // Sync radio button visual state with saved preset
     MixxxOSGeneric.updateRadioButtons(MixxxOSGeneric.currentPreset);
-    // Sync deck-active buttons from current crossfader position
     MixxxOSGeneric.onCrossfaderChange(engine.getValue("[Master]", "crossfader"));
     MixxxOSGeneric.refreshAllLEDs();
 };
@@ -136,16 +74,7 @@ MixxxOSGeneric.shutdown = function(id) {
 };
 
 // -----------------------------------------------------------------------------
-// Preset change handler (now driven by selectPreset, kept for compatibility)
-// -----------------------------------------------------------------------------
-MixxxOSGeneric.onPresetChange = function(value) {
-    MixxxOSGeneric.currentPreset = Math.round(value) || 0;
-    MixxxOSGeneric.updateRadioButtons(MixxxOSGeneric.currentPreset);
-    MixxxOSGeneric.refreshAllLEDs();
-};
-
-// -----------------------------------------------------------------------------
-// selectPreset – called when a radio button is clicked
+// Preset selection
 // -----------------------------------------------------------------------------
 MixxxOSGeneric.selectPreset = function(idx) {
     MixxxOSGeneric.currentPreset = idx;
@@ -154,7 +83,6 @@ MixxxOSGeneric.selectPreset = function(idx) {
     MixxxOSGeneric.refreshAllLEDs();
 };
 
-// Update preset_active_X so each radio button shows its active/inactive state
 MixxxOSGeneric.updateRadioButtons = function(activeIdx) {
     engine.setValue("[Skin]", "preset_active_0", activeIdx === 0 ? 1 : 0);
     engine.setValue("[Skin]", "preset_active_1", activeIdx === 1 ? 1 : 0);
@@ -162,13 +90,12 @@ MixxxOSGeneric.updateRadioButtons = function(activeIdx) {
 };
 
 // -----------------------------------------------------------------------------
-// Deck selector – cuts crossfader fully to deck 1 or 2
+// Deck selector
 // -----------------------------------------------------------------------------
 MixxxOSGeneric.cutToDeck = function(deck) {
     engine.setValue("[Master]", "crossfader", deck === 1 ? -1.0 : 1.0);
 };
 
-// Sync deck_active_X visual state with actual crossfader position
 MixxxOSGeneric.onCrossfaderChange = function(value) {
     engine.setValue("[Skin]", "deck_active_1", value <= 0 ? 1 : 0);
     engine.setValue("[Skin]", "deck_active_2", value > 0  ? 1 : 0);
@@ -180,8 +107,7 @@ MixxxOSGeneric.onCrossfaderChange = function(value) {
 MixxxOSGeneric.sendLED = function(deckNum, ledName, on) {
     var preset = MixxxOSGeneric.PRESETS[MixxxOSGeneric.currentPreset];
     if (!preset) { return; }
-    var deckKey = "ch" + deckNum;
-    var led = preset.leds[deckKey] && preset.leds[deckKey][ledName];
+    var led = preset.leds["ch" + deckNum] && preset.leds["ch" + deckNum][ledName];
     if (!led) { return; }
     midi.sendShortMsg(led.status, led.note, on ? 0x7F : 0x00);
 };
@@ -195,9 +121,9 @@ MixxxOSGeneric.makeCallback = function(deck, ledName, control) {
 MixxxOSGeneric.refreshAllLEDs = function() {
     for (var deck = 1; deck <= 2; deck++) {
         var group = "[Channel" + deck + "]";
-        MixxxOSGeneric.sendLED(deck, "play", engine.getValue(group, "play")         > 0);
+        MixxxOSGeneric.sendLED(deck, "play", engine.getValue(group, "play")          > 0);
         MixxxOSGeneric.sendLED(deck, "cue",  engine.getValue(group, "cue_indicator") > 0);
-        MixxxOSGeneric.sendLED(deck, "sync", engine.getValue(group, "sync_enabled") > 0);
+        MixxxOSGeneric.sendLED(deck, "sync", engine.getValue(group, "sync_enabled")  > 0);
     }
 };
 
@@ -220,6 +146,12 @@ MixxxOSGeneric.allLEDsOff = function() {
 // -----------------------------------------------------------------------------
 // Jog wheels
 // -----------------------------------------------------------------------------
+MixxxOSGeneric.groupToDeck = function(group) {
+    if (group === "[Channel1]") { return 1; }
+    if (group === "[Channel2]") { return 2; }
+    return 0;
+};
+
 MixxxOSGeneric.jogTouch = function(channel, control, value, status, group) {
     var deck = MixxxOSGeneric.groupToDeck(group);
     if (deck < 1) { return; }
@@ -227,7 +159,6 @@ MixxxOSGeneric.jogTouch = function(channel, control, value, status, group) {
     if (!preset) { return; }
 
     MixxxOSGeneric.touching[deck - 1] = (value > 0);
-
     if (value > 0) {
         engine.scratchEnable(deck, preset.jogResolution, preset.jogRpm, preset.jogAlpha, preset.jogBeta);
     } else {
@@ -241,8 +172,7 @@ MixxxOSGeneric.jogTurn = function(channel, control, value, status, group) {
     var preset = MixxxOSGeneric.PRESETS[MixxxOSGeneric.currentPreset];
     if (!preset) { return; }
 
-    var delta = value - 64;  // center at 64; <64 = rewind, >64 = forward
-
+    var delta = value - 64;
     if (engine.isScratching(deck)) {
         engine.scratchTick(deck, delta);
     } else {
@@ -250,76 +180,19 @@ MixxxOSGeneric.jogTurn = function(channel, control, value, status, group) {
     }
 };
 
-MixxxOSGeneric.groupToDeck = function(group) {
-    if (group === "[Channel1]") { return 1; }
-    if (group === "[Channel2]") { return 2; }
-    return 0;
-};
-
 // -----------------------------------------------------------------------------
-// Shift (Pioneer only)
+// Delegating input handlers – route to current preset's handler if defined
 // -----------------------------------------------------------------------------
-MixxxOSGeneric.shiftPressed = function(channel, control, value, status, group) {
-    var idx = (group === "[Channel1]") ? 0 : 1;
-    MixxxOSGeneric.shift[idx] = (value > 0);
-};
-
-// -----------------------------------------------------------------------------
-// Sync with shift-to-master (Pioneer)
-// -----------------------------------------------------------------------------
-MixxxOSGeneric.syncPressed = function(channel, control, value, status, group) {
-    if (value <= 0) { return; }
-    var idx = (group === "[Channel1]") ? 0 : 1;
-    if (MixxxOSGeneric.shift[idx]) {
-        engine.setValue(group, "sync_master", 1);
-    } else {
-        var current = engine.getValue(group, "sync_enabled");
-        engine.setValue(group, "sync_enabled", current > 0 ? 0 : 1);
+MixxxOSGeneric._delegate = function(handlerName, channel, control, value, status, group) {
+    var preset = MixxxOSGeneric.PRESETS[MixxxOSGeneric.currentPreset];
+    if (preset && typeof preset[handlerName] === "function") {
+        preset[handlerName](channel, control, value, status, group);
     }
 };
 
-// -----------------------------------------------------------------------------
-// Conflict dispatch: 0x97/0x00-0x03
-//   Preset 0 (Pioneer)  → deck1 hotcue
-//   Preset 1 (Hercules) → deck2 hotcue
-// -----------------------------------------------------------------------------
-MixxxOSGeneric.hotcueDispatch = function(channel, control, value, status, group) {
-    if (value <= 0) { return; }
-    var targetGroup = (MixxxOSGeneric.currentPreset === 0) ? "[Channel1]" : "[Channel2]";
-    engine.setValue(targetGroup, "hotcue_" + (control + 1) + "_activate", 1);
-};
+MixxxOSGeneric.shiftPressed    = function(ch, ctrl, val, st, grp) { MixxxOSGeneric._delegate("shiftPressed",    ch, ctrl, val, st, grp); };
+MixxxOSGeneric.syncPressed     = function(ch, ctrl, val, st, grp) { MixxxOSGeneric._delegate("syncPressed",     ch, ctrl, val, st, grp); };
+MixxxOSGeneric.hotcueDispatch  = function(ch, ctrl, val, st, grp) { MixxxOSGeneric._delegate("hotcueDispatch",  ch, ctrl, val, st, grp); };
+MixxxOSGeneric.syncCueDispatch = function(ch, ctrl, val, st, grp) { MixxxOSGeneric._delegate("syncCueDispatch", ch, ctrl, val, st, grp); };
+MixxxOSGeneric.cueTouchDispatch= function(ch, ctrl, val, st, grp) { MixxxOSGeneric._delegate("cueTouchDispatch",ch, ctrl, val, st, grp); };
 
-// -----------------------------------------------------------------------------
-// Conflict dispatch: 0x91/0x05
-//   Preset 1 (Hercules) → deck1 sync toggle
-//   Preset 2 (Numark)   → deck2 cue
-// -----------------------------------------------------------------------------
-MixxxOSGeneric.syncCueDispatch = function(channel, control, value, status, group) {
-    if (MixxxOSGeneric.currentPreset === 1) {
-        if (value > 0) {
-            var cur = engine.getValue("[Channel1]", "sync_enabled");
-            engine.setValue("[Channel1]", "sync_enabled", cur > 0 ? 0 : 1);
-        }
-    } else if (MixxxOSGeneric.currentPreset === 2) {
-        engine.setValue("[Channel2]", "cue_default", value > 0 ? 1 : 0);
-    }
-};
-
-// -----------------------------------------------------------------------------
-// Conflict dispatch: 0x91/0x06
-//   Preset 1 (Hercules) → deck1 cue
-//   Preset 2 (Numark)   → deck2 jog touch
-// -----------------------------------------------------------------------------
-MixxxOSGeneric.cueTouchDispatch = function(channel, control, value, status, group) {
-    if (MixxxOSGeneric.currentPreset === 1) {
-        engine.setValue("[Channel1]", "cue_default", value > 0 ? 1 : 0);
-    } else if (MixxxOSGeneric.currentPreset === 2) {
-        var preset = MixxxOSGeneric.PRESETS[2];
-        MixxxOSGeneric.touching[1] = (value > 0);
-        if (value > 0) {
-            engine.scratchEnable(2, preset.jogResolution, preset.jogRpm, preset.jogAlpha, preset.jogBeta);
-        } else {
-            engine.scratchDisable(2);
-        }
-    }
-};
