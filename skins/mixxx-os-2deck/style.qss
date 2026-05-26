@@ -474,6 +474,13 @@ WKnob, #SettingsKnob, #SettingsKnobCross {
   font-style: italic;
 }
 
+#SettingsInfoLabelSmall {
+  color: #666680;
+  font-size: 11px;
+  font-style: italic;
+  padding-left: 4px;
+}
+
 /* ===== Controller radio buttons ===== */
 #PresetItem0, #PresetItem1, #PresetItem2 {
   background-color: #0e0e16;

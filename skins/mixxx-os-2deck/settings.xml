@@ -217,7 +217,7 @@
             <Children>
               <Label>
                 <ObjectName>SettingsInfoLabel</ObjectName>
-                <Text>Dans Préférences › Contrôleurs, charger le mapping correspondant :</Text>
+                <Text>1. Lancer install.sh  2. Dans Préférences › Contrôleurs, choisir :</Text>
                 <Size>0me,22f</Size>
               </Label>
             </Children>
@@ -229,7 +229,7 @@
             <Children>
               <Label>
                 <ObjectName>SettingsInfoLabel</ObjectName>
-                <Text>  • mixxx-os-pioneer-flx4.midi.xml        → DDJ-FLX4</Text>
+                <Text>  Mixxx OS Controllers (Universal)</Text>
                 <Size>0me,20f</Size>
               </Label>
             </Children>
@@ -237,60 +237,12 @@
           <WidgetGroup>
             <ObjectName>SettingsInfoRow</ObjectName>
             <Layout>horizontal</Layout>
-            <Size>0me,20f</Size>
+            <Size>0me,18f</Size>
             <Children>
               <Label>
-                <ObjectName>SettingsInfoLabel</ObjectName>
-                <Text>  • mixxx-os-pioneer-ddj400.midi.xml      → DDJ-400</Text>
-                <Size>0me,20f</Size>
-              </Label>
-            </Children>
-          </WidgetGroup>
-          <WidgetGroup>
-            <ObjectName>SettingsInfoRow</ObjectName>
-            <Layout>horizontal</Layout>
-            <Size>0me,20f</Size>
-            <Children>
-              <Label>
-                <ObjectName>SettingsInfoLabel</ObjectName>
-                <Text>  • mixxx-os-pioneer-ddj200.midi.xml      → DDJ-200</Text>
-                <Size>0me,20f</Size>
-              </Label>
-            </Children>
-          </WidgetGroup>
-          <WidgetGroup>
-            <ObjectName>SettingsInfoRow</ObjectName>
-            <Layout>horizontal</Layout>
-            <Size>0me,20f</Size>
-            <Children>
-              <Label>
-                <ObjectName>SettingsInfoLabel</ObjectName>
-                <Text>  • mixxx-os-hercules-inpulse300.midi.xml → Inpulse 300</Text>
-                <Size>0me,20f</Size>
-              </Label>
-            </Children>
-          </WidgetGroup>
-          <WidgetGroup>
-            <ObjectName>SettingsInfoRow</ObjectName>
-            <Layout>horizontal</Layout>
-            <Size>0me,20f</Size>
-            <Children>
-              <Label>
-                <ObjectName>SettingsInfoLabel</ObjectName>
-                <Text>  • mixxx-os-hercules-inpulse500.midi.xml → Inpulse 500</Text>
-                <Size>0me,20f</Size>
-              </Label>
-            </Children>
-          </WidgetGroup>
-          <WidgetGroup>
-            <ObjectName>SettingsInfoRow</ObjectName>
-            <Layout>horizontal</Layout>
-            <Size>0me,20f</Size>
-            <Children>
-              <Label>
-                <ObjectName>SettingsInfoLabel</ObjectName>
-                <Text>  • mixxx-os-numark-mixtrack-pfx.midi.xml → Mixtrack Platinum FX</Text>
-                <Size>0me,20f</Size>
+                <ObjectName>SettingsInfoLabelSmall</ObjectName>
+                <Text>Supporte : DDJ-FLX4 · DDJ-400 · DDJ-200 · Inpulse 300/500 · Mixtrack PFX</Text>
+                <Size>0me,18f</Size>
               </Label>
             </Children>
           </WidgetGroup>
@@ -302,7 +254,7 @@
             <Children>
               <Label>
                 <ObjectName>SettingsRowHint</ObjectName>
-                <Text>Les mappings se trouvent dans le dossier controllers/ du thème</Text>
+                <Text>Le contrôleur est détecté automatiquement au démarrage</Text>
                 <Size>0me,40f</Size>
               </Label>
               <PushButton>
