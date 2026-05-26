@@ -166,6 +166,8 @@ MixxxOSGeneric.jogTouch = function(channel, control, value, status, group) {
     }
 };
 
+// Platter turn (vinyl scratch CC or non-vinyl pitch bend CC) – uses scratch
+// when touch is active, otherwise pitch bends.
 MixxxOSGeneric.jogTurn = function(channel, control, value, status, group) {
     var deck = MixxxOSGeneric.groupToDeck(group);
     if (deck < 1) { return; }
@@ -178,6 +180,52 @@ MixxxOSGeneric.jogTurn = function(channel, control, value, status, group) {
     } else {
         engine.setValue(group, "jog", delta * preset.bendScale);
     }
+};
+
+// Side ring – ALWAYS pitch bend, never scratch.
+// Prevents double scratch ticks when platter and side ring move simultaneously.
+MixxxOSGeneric.jogSideRing = function(channel, control, value, status, group) {
+    var deck = MixxxOSGeneric.groupToDeck(group);
+    if (deck < 1) { return; }
+    var preset = MixxxOSGeneric.PRESETS[MixxxOSGeneric.currentPreset];
+    if (!preset) { return; }
+
+    engine.setValue(group, "jog", (value - 64) * preset.bendScale);
+};
+
+// -----------------------------------------------------------------------------
+// High-res tempo slider (14-bit Pioneer: CC 0/32 ch1, CC 0/32 ch2)
+// rate formula: 1 - (fullValue / 0x2000)
+//   center (8192) → 0 (normal speed)
+//   min (0)       → +1 (max pitch up)
+//   max (16383)   → -1 (max pitch down)
+// -----------------------------------------------------------------------------
+MixxxOSGeneric._tempoMSB = {"[Channel1]": 0, "[Channel2]": 0};
+
+MixxxOSGeneric.tempoMSB = function(channel, control, value, status, group) {
+    if (MixxxOSGeneric._tempoMSB[group] !== undefined) {
+        MixxxOSGeneric._tempoMSB[group] = value;
+    }
+};
+
+MixxxOSGeneric.tempoLSB = function(channel, control, value, status, group) {
+    var msb = MixxxOSGeneric._tempoMSB[group];
+    if (msb === undefined) { return; }
+    var fullValue = (msb << 7) + value;
+    engine.setValue(group, "rate", 1 - (fullValue / 0x2000));
+};
+
+// -----------------------------------------------------------------------------
+// Loop size controls (CUE/LOOP CALL buttons)
+// -----------------------------------------------------------------------------
+MixxxOSGeneric.loopHalve = function(channel, control, value, status, group) {
+    if (value <= 0) { return; }
+    engine.setValue(group, "loop_halve", 1);
+};
+
+MixxxOSGeneric.loopDouble = function(channel, control, value, status, group) {
+    if (value <= 0) { return; }
+    engine.setValue(group, "loop_double", 1);
 };
 
 // -----------------------------------------------------------------------------
@@ -195,4 +243,10 @@ MixxxOSGeneric.syncPressed     = function(ch, ctrl, val, st, grp) { MixxxOSGener
 MixxxOSGeneric.hotcueDispatch  = function(ch, ctrl, val, st, grp) { MixxxOSGeneric._delegate("hotcueDispatch",  ch, ctrl, val, st, grp); };
 MixxxOSGeneric.syncCueDispatch = function(ch, ctrl, val, st, grp) { MixxxOSGeneric._delegate("syncCueDispatch", ch, ctrl, val, st, grp); };
 MixxxOSGeneric.cueTouchDispatch= function(ch, ctrl, val, st, grp) { MixxxOSGeneric._delegate("cueTouchDispatch",ch, ctrl, val, st, grp); };
+MixxxOSGeneric.beatFxSelect    = function(ch, ctrl, val, st, grp) { MixxxOSGeneric._delegate("beatFxSelect",    ch, ctrl, val, st, grp); };
+MixxxOSGeneric.beatFxSelectShift= function(ch, ctrl, val, st, grp){ MixxxOSGeneric._delegate("beatFxSelectShift",ch, ctrl, val, st, grp); };
+MixxxOSGeneric.beatFxLeft      = function(ch, ctrl, val, st, grp) { MixxxOSGeneric._delegate("beatFxLeft",      ch, ctrl, val, st, grp); };
+MixxxOSGeneric.beatFxRight     = function(ch, ctrl, val, st, grp) { MixxxOSGeneric._delegate("beatFxRight",     ch, ctrl, val, st, grp); };
+MixxxOSGeneric.beatFxOnOff     = function(ch, ctrl, val, st, grp) { MixxxOSGeneric._delegate("beatFxOnOff",     ch, ctrl, val, st, grp); };
+MixxxOSGeneric.beatFxLevel     = function(ch, ctrl, val, st, grp) { MixxxOSGeneric._delegate("beatFxLevel",     ch, ctrl, val, st, grp); };
 
