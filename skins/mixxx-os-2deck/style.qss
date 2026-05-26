@@ -473,3 +473,34 @@ WKnob, #SettingsKnob, #SettingsKnobCross {
   font-size: 13px;
   font-style: italic;
 }
+
+#SettingsPresetButton {
+  background-color: #1a1a24;
+  border: 2px solid #2d85cd;
+  border-radius: 6px;
+  color: #e0e0e0;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px 12px;
+  qproperty-layoutAlignment: 'AlignLeft | AlignVCenter';
+}
+
+#SettingsPresetButton:hover {
+  background-color: #23232d;
+  border-color: #5ba8e0;
+}
+
+#SettingsPresetButton[value="0"] {
+  border-color: #e05a2b;
+  color: #e05a2b;
+}
+
+#SettingsPresetButton[value="1"] {
+  border-color: #2bd4e0;
+  color: #2bd4e0;
+}
+
+#SettingsPresetButton[value="2"] {
+  border-color: #e0b02b;
+  color: #e0b02b;
+}

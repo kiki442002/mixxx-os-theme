@@ -158,15 +158,44 @@
           </WidgetGroup>
 
           <WidgetGroup>
-            <ObjectName>SettingsInfoRow</ObjectName>
-            <Layout>horizontal</Layout>
-            <Size>0me,30f</Size>
+            <ObjectName>SettingsRow</ObjectName>
+            <Layout>vertical</Layout>
+            <Size>0me,0me</Size>
             <Children>
+
               <Label>
                 <ObjectName>SettingsInfoLabel</ObjectName>
-                <Text>Pour configurer un contrôleur : Préférences &#8250; Contrôleurs</Text>
-                <Size>0me,30f</Size>
+                <Text>Preset du contrôleur générique (cliquer pour changer) :</Text>
+                <Size>0me,20f</Size>
               </Label>
+
+              <PushButton>
+                <ObjectName>SettingsPresetButton</ObjectName>
+                <Size>0me,40f</Size>
+                <NumberStates>3</NumberStates>
+                <State>
+                  <Number>0</Number>
+                  <Text>Pioneer DDJ-400 / FLX4 / DDJ-200</Text>
+                </State>
+                <State>
+                  <Number>1</Number>
+                  <Text>Hercules Inpulse 300 / 500</Text>
+                </State>
+                <State>
+                  <Number>2</Number>
+                  <Text>Numark Mixtrack Platinum FX</Text>
+                </State>
+                <Connection>
+                  <ConfigKey persist="true">[Skin],controller_preset</ConfigKey>
+                </Connection>
+              </PushButton>
+
+              <Label>
+                <ObjectName>SettingsInfoLabel</ObjectName>
+                <Text>&#9888; Activer aussi le mapping "Mixxx OS Generic" dans Préférences &#8250; Contrôleurs</Text>
+                <Size>0me,20f</Size>
+              </Label>
+
             </Children>
           </WidgetGroup>
         </Children>
