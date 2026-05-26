@@ -514,3 +514,67 @@ WKnob, #SettingsKnob, #SettingsKnobCross {
   color: #e0b02b;
   font-weight: bold;
 }
+
+/* ===== Deck selector radio buttons ===== */
+#DeckItem0, #DeckItem1 {
+  background-color: #0e0e16;
+  border: 1px solid #2a2a38;
+  border-radius: 0px;
+  color: #7a7a9a;
+  font-size: 14px;
+  font-weight: normal;
+  padding: 0px 10px;
+  qproperty-layoutAlignment: 'AlignLeft | AlignVCenter';
+}
+
+#DeckItem0 { border-radius: 6px 6px 0 0; }
+#DeckItem1 { border-radius: 0 0 6px 6px; }
+
+#DeckItem0:hover, #DeckItem1:hover {
+  background-color: #16161f;
+  color: #b0b0c8;
+  border-color: #3a3a50;
+}
+
+#DeckItem0[value="1"] {
+  background-color: #1a1a24;
+  border: 2px solid #5ba8e0;
+  color: #5ba8e0;
+  font-weight: bold;
+}
+#DeckItem1[value="1"] {
+  background-color: #1a1a24;
+  border: 2px solid #5ba8e0;
+  color: #5ba8e0;
+  font-weight: bold;
+}
+
+/* ===== Audio output rows ===== */
+#SettingsRowLabel {
+  color: #e5e6ea;
+  font-size: 13px;
+  font-weight: bold;
+  qproperty-layoutAlignment: 'AlignLeft | AlignVCenter';
+}
+
+#SettingsRowHint {
+  color: #5a5a7a;
+  font-size: 12px;
+  font-style: italic;
+  qproperty-layoutAlignment: 'AlignLeft | AlignVCenter';
+}
+
+#SettingsOpenPrefsButton {
+  background-color: #1a1a24;
+  border: 1px solid #2d85cd;
+  border-radius: 5px;
+  color: #2d85cd;
+  font-size: 12px;
+  padding: 0 8px;
+}
+
+#SettingsOpenPrefsButton:hover {
+  background-color: #20202e;
+  border-color: #5ba8e0;
+  color: #5ba8e0;
+}

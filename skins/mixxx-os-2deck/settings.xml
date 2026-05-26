@@ -23,130 +23,98 @@
             </Children>
           </WidgetGroup>
 
-          <WidgetGroup>
-            <ObjectName>SettingsInfoRow</ObjectName>
-            <Layout>horizontal</Layout>
-            <Size>0me,22f</Size>
-            <Children>
-              <Label>
-                <ObjectName>SettingsInfoLabel</ObjectName>
-                <Text>Raccourcis de niveau — ajustent le mix en temps réel (tournez à la souris)</Text>
-                <Size>0me,22f</Size>
-              </Label>
-            </Children>
-          </WidgetGroup>
-
+          <!-- Sortie Master -->
           <WidgetGroup>
             <ObjectName>SettingsRow</ObjectName>
             <Layout>horizontal</Layout>
-            <Size>0me,80f</Size>
+            <Size>0me,40f</Size>
             <Children>
+              <Label>
+                <ObjectName>SettingsRowLabel</ObjectName>
+                <Text>Sortie Master</Text>
+                <Size>140f,40f</Size>
+              </Label>
+              <Label>
+                <ObjectName>SettingsRowHint</ObjectName>
+                <Text>Carte son principale — sélectionner dans Préférences</Text>
+                <Size>0me,40f</Size>
+              </Label>
+              <PushButton>
+                <ObjectName>SettingsOpenPrefsButton</ObjectName>
+                <Size>100f,30f</Size>
+                <NumberStates>1</NumberStates>
+                <State>
+                  <Number>0</Number>
+                  <Text>Configurer</Text>
+                </State>
+                <Connection>
+                  <ConfigKey>[Controls],open_preferences</ConfigKey>
+                  <ConnectValueFromWidget>true</ConnectValueFromWidget>
+                  <ConnectValueToWidget>false</ConnectValueToWidget>
+                </Connection>
+              </PushButton>
+            </Children>
+          </WidgetGroup>
 
-              <WidgetGroup>
-                <ObjectName>SettingsKnobGroup</ObjectName>
-                <Layout>vertical</Layout>
-                <Size>120f,0me</Size>
-                <Children>
-                  <Label>
-                    <ObjectName>SettingsKnobLabel</ObjectName>
-                    <Text>Vol. Master</Text>
-                    <Size>120f,20f</Size>
-                  </Label>
-                  <Knob>
-                    <ObjectName>SettingsKnob</ObjectName>
-                    <TooltipId>master_volume</TooltipId>
-                    <Size>50f,50f</Size>
-                    <Connection>
-                      <ConfigKey>[Master],volume</ConfigKey>
-                    </Connection>
-                  </Knob>
-                </Children>
-              </WidgetGroup>
+          <!-- Sortie Casque -->
+          <WidgetGroup>
+            <ObjectName>SettingsRow</ObjectName>
+            <Layout>horizontal</Layout>
+            <Size>0me,40f</Size>
+            <Children>
+              <Label>
+                <ObjectName>SettingsRowLabel</ObjectName>
+                <Text>Sortie Casque</Text>
+                <Size>140f,40f</Size>
+              </Label>
+              <Label>
+                <ObjectName>SettingsRowHint</ObjectName>
+                <Text>Sortie monitoring — sélectionner dans Préférences</Text>
+                <Size>0me,40f</Size>
+              </Label>
+              <PushButton>
+                <ObjectName>SettingsOpenPrefsButton</ObjectName>
+                <Size>100f,30f</Size>
+                <NumberStates>1</NumberStates>
+                <State>
+                  <Number>0</Number>
+                  <Text>Configurer</Text>
+                </State>
+                <Connection>
+                  <ConfigKey>[Controls],open_preferences</ConfigKey>
+                  <ConnectValueFromWidget>true</ConnectValueFromWidget>
+                  <ConnectValueToWidget>false</ConnectValueToWidget>
+                </Connection>
+              </PushButton>
+            </Children>
+          </WidgetGroup>
 
-              <WidgetGroup>
-                <ObjectName>SettingsKnobGroup</ObjectName>
-                <Layout>vertical</Layout>
-                <Size>120f,0me</Size>
-                <Children>
-                  <Label>
-                    <ObjectName>SettingsKnobLabel</ObjectName>
-                    <Text>Vol. Casque</Text>
-                    <Size>120f,20f</Size>
-                  </Label>
-                  <Knob>
-                    <ObjectName>SettingsKnob</ObjectName>
-                    <TooltipId>headphone_volume</TooltipId>
-                    <Size>50f,50f</Size>
-                    <Connection>
-                      <ConfigKey>[Master],headVolume</ConfigKey>
-                    </Connection>
-                  </Knob>
-                </Children>
-              </WidgetGroup>
+        </Children>
+      </WidgetGroup>
 
-              <WidgetGroup>
-                <ObjectName>SettingsKnobGroup</ObjectName>
-                <Layout>vertical</Layout>
-                <Size>120f,0me</Size>
-                <Children>
-                  <Label>
-                    <ObjectName>SettingsKnobLabel</ObjectName>
-                    <Text>Cue / Mix</Text>
-                    <Size>120f,20f</Size>
-                  </Label>
-                  <Knob>
-                    <ObjectName>SettingsKnob</ObjectName>
-                    <TooltipId>headphone_mix</TooltipId>
-                    <Size>50f,50f</Size>
-                    <Connection>
-                      <ConfigKey>[Master],headMix</ConfigKey>
-                    </Connection>
-                  </Knob>
-                </Children>
-              </WidgetGroup>
+      <!-- ===== SEPARATOR ===== -->
+      <WidgetGroup>
+        <ObjectName>SettingsSeparator</ObjectName>
+        <Layout>horizontal</Layout>
+        <Size>0me,2f</Size>
+        <Children/>
+      </WidgetGroup>
 
-              <WidgetGroup>
-                <ObjectName>SettingsKnobGroup</ObjectName>
-                <Layout>vertical</Layout>
-                <Size>120f,0me</Size>
-                <Children>
-                  <Label>
-                    <ObjectName>SettingsKnobLabel</ObjectName>
-                    <Text>Balance</Text>
-                    <Size>120f,20f</Size>
-                  </Label>
-                  <Knob>
-                    <ObjectName>SettingsKnob</ObjectName>
-                    <TooltipId>master_balance</TooltipId>
-                    <Size>50f,50f</Size>
-                    <Connection>
-                      <ConfigKey>[Master],balance</ConfigKey>
-                    </Connection>
-                  </Knob>
-                </Children>
-              </WidgetGroup>
-
-              <WidgetGroup>
-                <ObjectName>SettingsKnobGroup</ObjectName>
-                <Layout>vertical</Layout>
-                <Size>120f,0me</Size>
-                <Children>
-                  <Label>
-                    <ObjectName>SettingsKnobLabel</ObjectName>
-                    <Text>Crossfader</Text>
-                    <Size>120f,20f</Size>
-                  </Label>
-                  <Knob>
-                    <ObjectName>SettingsKnob</ObjectName>
-                    <TooltipId>crossfader</TooltipId>
-                    <Size>50f,50f</Size>
-                    <Connection>
-                      <ConfigKey>[Master],crossfader</ConfigKey>
-                    </Connection>
-                  </Knob>
-                </Children>
-              </WidgetGroup>
-
+      <!-- ===== PISTE ACTIVE (crossfader cut) ===== -->
+      <WidgetGroup>
+        <ObjectName>SettingsSection</ObjectName>
+        <Layout>vertical</Layout>
+        <Size>0me,0me</Size>
+        <Children>
+          <WidgetGroup>
+            <ObjectName>SettingsSectionHeader</ObjectName>
+            <Layout>horizontal</Layout>
+            <Size>0me,30f</Size>
+            <Children>
+              <Label>
+                <ObjectName>SettingsSectionTitle</ObjectName>
+                <Text>PISTE ACTIVE</Text>
+              </Label>
             </Children>
           </WidgetGroup>
 
@@ -157,11 +125,62 @@
             <Children>
               <Label>
                 <ObjectName>SettingsInfoLabel</ObjectName>
-                <Text>Carte son : Préférences &#8250; Matériel audio</Text>
+                <Text>Coupe le crossfader vers la piste sélectionnée :</Text>
                 <Size>0me,22f</Size>
               </Label>
             </Children>
           </WidgetGroup>
+
+          <!-- Radio: Piste 1 -->
+          <PushButton>
+            <ObjectName>DeckItem0</ObjectName>
+            <Size>0me,40f</Size>
+            <NumberStates>2</NumberStates>
+            <State>
+              <Number>0</Number>
+              <Text>  Piste 1</Text>
+            </State>
+            <State>
+              <Number>1</Number>
+              <Text>  &#10003; Piste 1</Text>
+            </State>
+            <Connection>
+              <ConfigKey>[Skin],select_deck_1</ConfigKey>
+              <ConnectValueFromWidget>true</ConnectValueFromWidget>
+              <ConnectValueToWidget>false</ConnectValueToWidget>
+            </Connection>
+            <Connection>
+              <ConfigKey persist="false">[Skin],deck_active_1</ConfigKey>
+              <ConnectValueFromWidget>false</ConnectValueFromWidget>
+              <ConnectValueToWidget>true</ConnectValueToWidget>
+            </Connection>
+          </PushButton>
+
+          <!-- Radio: Piste 2 -->
+          <PushButton>
+            <ObjectName>DeckItem1</ObjectName>
+            <Size>0me,40f</Size>
+            <NumberStates>2</NumberStates>
+            <State>
+              <Number>0</Number>
+              <Text>  Piste 2</Text>
+            </State>
+            <State>
+              <Number>1</Number>
+              <Text>  &#10003; Piste 2</Text>
+            </State>
+            <Connection>
+              <ConfigKey>[Skin],select_deck_2</ConfigKey>
+              <ConnectValueFromWidget>true</ConnectValueFromWidget>
+              <ConnectValueToWidget>false</ConnectValueToWidget>
+            </Connection>
+            <Connection>
+              <ConfigKey persist="false">[Skin],deck_active_2</ConfigKey>
+              <ConnectValueFromWidget>false</ConnectValueFromWidget>
+              <ConnectValueToWidget>true</ConnectValueToWidget>
+            </Connection>
+          </PushButton>
+
         </Children>
       </WidgetGroup>
 

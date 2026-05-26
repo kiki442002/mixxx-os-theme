@@ -100,6 +100,14 @@ MixxxOSGeneric.init = function(id) {
     if (s1) { MixxxOSGeneric.connections.push(s1); }
     if (s2) { MixxxOSGeneric.connections.push(s2); }
 
+    // Deck selector buttons – cut crossfader to deck 1 or 2
+    var d1 = engine.makeConnection("[Skin]", "select_deck_1", function(v) { if (v > 0) MixxxOSGeneric.cutToDeck(1); });
+    var d2 = engine.makeConnection("[Skin]", "select_deck_2", function(v) { if (v > 0) MixxxOSGeneric.cutToDeck(2); });
+    var cf = engine.makeConnection("[Master]",  "crossfader",    MixxxOSGeneric.onCrossfaderChange);
+    if (d1) { MixxxOSGeneric.connections.push(d1); }
+    if (d2) { MixxxOSGeneric.connections.push(d2); }
+    if (cf) { MixxxOSGeneric.connections.push(cf); }
+
     for (var deck = 1; deck <= 2; deck++) {
         var group = "[Channel" + deck + "]";
         var c1 = engine.makeConnection(group, "play",          MixxxOSGeneric.makeCallback(deck, "play",  "play"));
@@ -112,6 +120,8 @@ MixxxOSGeneric.init = function(id) {
 
     // Sync radio button visual state with saved preset
     MixxxOSGeneric.updateRadioButtons(MixxxOSGeneric.currentPreset);
+    // Sync deck-active buttons from current crossfader position
+    MixxxOSGeneric.onCrossfaderChange(engine.getValue("[Master]", "crossfader"));
     MixxxOSGeneric.refreshAllLEDs();
 };
 
@@ -149,6 +159,19 @@ MixxxOSGeneric.updateRadioButtons = function(activeIdx) {
     engine.setValue("[Skin]", "preset_active_0", activeIdx === 0 ? 1 : 0);
     engine.setValue("[Skin]", "preset_active_1", activeIdx === 1 ? 1 : 0);
     engine.setValue("[Skin]", "preset_active_2", activeIdx === 2 ? 1 : 0);
+};
+
+// -----------------------------------------------------------------------------
+// Deck selector – cuts crossfader fully to deck 1 or 2
+// -----------------------------------------------------------------------------
+MixxxOSGeneric.cutToDeck = function(deck) {
+    engine.setValue("[Master]", "crossfader", deck === 1 ? -1.0 : 1.0);
+};
+
+// Sync deck_active_X visual state with actual crossfader position
+MixxxOSGeneric.onCrossfaderChange = function(value) {
+    engine.setValue("[Skin]", "deck_active_1", value <= 0 ? 1 : 0);
+    engine.setValue("[Skin]", "deck_active_2", value > 0  ? 1 : 0);
 };
 
 // -----------------------------------------------------------------------------
