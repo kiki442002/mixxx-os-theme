@@ -474,33 +474,43 @@ WKnob, #SettingsKnob, #SettingsKnobCross {
   font-style: italic;
 }
 
-#SettingsPresetButton {
-  background-color: #1a1a24;
-  border: 2px solid #2d85cd;
-  border-radius: 6px;
-  color: #e0e0e0;
+/* ===== Controller radio buttons ===== */
+#PresetItem0, #PresetItem1, #PresetItem2 {
+  background-color: #0e0e16;
+  border: 1px solid #2a2a38;
+  border-radius: 0px;
+  color: #7a7a9a;
   font-size: 14px;
-  font-weight: bold;
-  padding: 8px 12px;
+  font-weight: normal;
+  padding: 0px 10px;
   qproperty-layoutAlignment: 'AlignLeft | AlignVCenter';
 }
 
-#SettingsPresetButton:hover {
-  background-color: #23232d;
-  border-color: #5ba8e0;
+#PresetItem0 { border-top: 1px solid #2a2a38; border-radius: 6px 6px 0 0; }
+#PresetItem2 { border-bottom: 1px solid #2a2a38; border-radius: 0 0 6px 6px; }
+
+#PresetItem0:hover, #PresetItem1:hover, #PresetItem2:hover {
+  background-color: #16161f;
+  color: #b0b0c8;
+  border-color: #3a3a50;
 }
 
-#SettingsPresetButton[value="0"] {
-  border-color: #e05a2b;
+/* Active (selected) state — value="1" means preset_active_X = 1 */
+#PresetItem0[value="1"] {
+  background-color: #1a1a24;
+  border: 2px solid #e05a2b;
   color: #e05a2b;
+  font-weight: bold;
 }
-
-#SettingsPresetButton[value="1"] {
-  border-color: #2bd4e0;
+#PresetItem1[value="1"] {
+  background-color: #1a1a24;
+  border: 2px solid #2bd4e0;
   color: #2bd4e0;
+  font-weight: bold;
 }
-
-#SettingsPresetButton[value="2"] {
-  border-color: #e0b02b;
+#PresetItem2[value="1"] {
+  background-color: #1a1a24;
+  border: 2px solid #e0b02b;
   color: #e0b02b;
+  font-weight: bold;
 }

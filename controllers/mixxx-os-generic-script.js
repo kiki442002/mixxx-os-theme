@@ -92,8 +92,13 @@ MixxxOSGeneric.init = function(id) {
     var raw = engine.getValue("[Skin]", "controller_preset");
     MixxxOSGeneric.currentPreset = (raw !== undefined && !isNaN(raw)) ? Math.round(raw) : 0;
 
-    var conn = engine.makeConnection("[Skin]", "controller_preset", MixxxOSGeneric.onPresetChange);
-    if (conn) { MixxxOSGeneric.connections.push(conn); }
+    // Radio button select keys – each fires when a preset button is clicked
+    var s0 = engine.makeConnection("[Skin]", "select_preset_0", function(v) { if (v > 0) MixxxOSGeneric.selectPreset(0); });
+    var s1 = engine.makeConnection("[Skin]", "select_preset_1", function(v) { if (v > 0) MixxxOSGeneric.selectPreset(1); });
+    var s2 = engine.makeConnection("[Skin]", "select_preset_2", function(v) { if (v > 0) MixxxOSGeneric.selectPreset(2); });
+    if (s0) { MixxxOSGeneric.connections.push(s0); }
+    if (s1) { MixxxOSGeneric.connections.push(s1); }
+    if (s2) { MixxxOSGeneric.connections.push(s2); }
 
     for (var deck = 1; deck <= 2; deck++) {
         var group = "[Channel" + deck + "]";
@@ -105,6 +110,8 @@ MixxxOSGeneric.init = function(id) {
         if (c3) { MixxxOSGeneric.connections.push(c3); }
     }
 
+    // Sync radio button visual state with saved preset
+    MixxxOSGeneric.updateRadioButtons(MixxxOSGeneric.currentPreset);
     MixxxOSGeneric.refreshAllLEDs();
 };
 
@@ -119,11 +126,29 @@ MixxxOSGeneric.shutdown = function(id) {
 };
 
 // -----------------------------------------------------------------------------
-// Preset change handler
+// Preset change handler (now driven by selectPreset, kept for compatibility)
 // -----------------------------------------------------------------------------
 MixxxOSGeneric.onPresetChange = function(value) {
     MixxxOSGeneric.currentPreset = Math.round(value) || 0;
+    MixxxOSGeneric.updateRadioButtons(MixxxOSGeneric.currentPreset);
     MixxxOSGeneric.refreshAllLEDs();
+};
+
+// -----------------------------------------------------------------------------
+// selectPreset – called when a radio button is clicked
+// -----------------------------------------------------------------------------
+MixxxOSGeneric.selectPreset = function(idx) {
+    MixxxOSGeneric.currentPreset = idx;
+    engine.setValue("[Skin]", "controller_preset", idx);
+    MixxxOSGeneric.updateRadioButtons(idx);
+    MixxxOSGeneric.refreshAllLEDs();
+};
+
+// Update preset_active_X so each radio button shows its active/inactive state
+MixxxOSGeneric.updateRadioButtons = function(activeIdx) {
+    engine.setValue("[Skin]", "preset_active_0", activeIdx === 0 ? 1 : 0);
+    engine.setValue("[Skin]", "preset_active_1", activeIdx === 1 ? 1 : 0);
+    engine.setValue("[Skin]", "preset_active_2", activeIdx === 2 ? 1 : 0);
 };
 
 // -----------------------------------------------------------------------------

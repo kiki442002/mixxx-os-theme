@@ -24,20 +24,33 @@
           </WidgetGroup>
 
           <WidgetGroup>
+            <ObjectName>SettingsInfoRow</ObjectName>
+            <Layout>horizontal</Layout>
+            <Size>0me,22f</Size>
+            <Children>
+              <Label>
+                <ObjectName>SettingsInfoLabel</ObjectName>
+                <Text>Raccourcis de niveau — ajustent le mix en temps réel (tournez à la souris)</Text>
+                <Size>0me,22f</Size>
+              </Label>
+            </Children>
+          </WidgetGroup>
+
+          <WidgetGroup>
             <ObjectName>SettingsRow</ObjectName>
             <Layout>horizontal</Layout>
-            <Size>0me,70f</Size>
+            <Size>0me,80f</Size>
             <Children>
 
               <WidgetGroup>
                 <ObjectName>SettingsKnobGroup</ObjectName>
                 <Layout>vertical</Layout>
-                <Size>100f,0me</Size>
+                <Size>120f,0me</Size>
                 <Children>
                   <Label>
                     <ObjectName>SettingsKnobLabel</ObjectName>
-                    <Text>Volume Master</Text>
-                    <Size>0me,20f</Size>
+                    <Text>Vol. Master</Text>
+                    <Size>120f,20f</Size>
                   </Label>
                   <Knob>
                     <ObjectName>SettingsKnob</ObjectName>
@@ -53,12 +66,12 @@
               <WidgetGroup>
                 <ObjectName>SettingsKnobGroup</ObjectName>
                 <Layout>vertical</Layout>
-                <Size>100f,0me</Size>
+                <Size>120f,0me</Size>
                 <Children>
                   <Label>
                     <ObjectName>SettingsKnobLabel</ObjectName>
-                    <Text>Volume Casque</Text>
-                    <Size>0me,20f</Size>
+                    <Text>Vol. Casque</Text>
+                    <Size>120f,20f</Size>
                   </Label>
                   <Knob>
                     <ObjectName>SettingsKnob</ObjectName>
@@ -74,12 +87,12 @@
               <WidgetGroup>
                 <ObjectName>SettingsKnobGroup</ObjectName>
                 <Layout>vertical</Layout>
-                <Size>100f,0me</Size>
+                <Size>120f,0me</Size>
                 <Children>
                   <Label>
                     <ObjectName>SettingsKnobLabel</ObjectName>
-                    <Text>Mix Cue/Master</Text>
-                    <Size>0me,20f</Size>
+                    <Text>Cue / Mix</Text>
+                    <Size>120f,20f</Size>
                   </Label>
                   <Knob>
                     <ObjectName>SettingsKnob</ObjectName>
@@ -95,12 +108,12 @@
               <WidgetGroup>
                 <ObjectName>SettingsKnobGroup</ObjectName>
                 <Layout>vertical</Layout>
-                <Size>100f,0me</Size>
+                <Size>120f,0me</Size>
                 <Children>
                   <Label>
                     <ObjectName>SettingsKnobLabel</ObjectName>
                     <Text>Balance</Text>
-                    <Size>0me,20f</Size>
+                    <Size>120f,20f</Size>
                   </Label>
                   <Knob>
                     <ObjectName>SettingsKnob</ObjectName>
@@ -113,18 +126,39 @@
                 </Children>
               </WidgetGroup>
 
+              <WidgetGroup>
+                <ObjectName>SettingsKnobGroup</ObjectName>
+                <Layout>vertical</Layout>
+                <Size>120f,0me</Size>
+                <Children>
+                  <Label>
+                    <ObjectName>SettingsKnobLabel</ObjectName>
+                    <Text>Crossfader</Text>
+                    <Size>120f,20f</Size>
+                  </Label>
+                  <Knob>
+                    <ObjectName>SettingsKnob</ObjectName>
+                    <TooltipId>crossfader</TooltipId>
+                    <Size>50f,50f</Size>
+                    <Connection>
+                      <ConfigKey>[Master],crossfader</ConfigKey>
+                    </Connection>
+                  </Knob>
+                </Children>
+              </WidgetGroup>
+
             </Children>
           </WidgetGroup>
 
           <WidgetGroup>
             <ObjectName>SettingsInfoRow</ObjectName>
             <Layout>horizontal</Layout>
-            <Size>0me,30f</Size>
+            <Size>0me,22f</Size>
             <Children>
               <Label>
                 <ObjectName>SettingsInfoLabel</ObjectName>
-                <Text>Pour choisir la carte son : Préférences &#8250; Matériel audio</Text>
-                <Size>0me,30f</Size>
+                <Text>Carte son : Préférences &#8250; Matériel audio</Text>
+                <Size>0me,22f</Size>
               </Label>
             </Children>
           </WidgetGroup>
@@ -158,101 +192,106 @@
           </WidgetGroup>
 
           <WidgetGroup>
-            <ObjectName>SettingsRow</ObjectName>
-            <Layout>vertical</Layout>
-            <Size>0me,0me</Size>
+            <ObjectName>SettingsInfoRow</ObjectName>
+            <Layout>horizontal</Layout>
+            <Size>0me,22f</Size>
             <Children>
-
               <Label>
                 <ObjectName>SettingsInfoLabel</ObjectName>
-                <Text>Preset du contrôleur générique (cliquer pour changer) :</Text>
-                <Size>0me,20f</Size>
+                <Text>Choisissez votre contrôleur — cliquer pour sélectionner :</Text>
+                <Size>0me,22f</Size>
               </Label>
+            </Children>
+          </WidgetGroup>
 
-              <PushButton>
-                <ObjectName>SettingsPresetButton</ObjectName>
-                <Size>0me,40f</Size>
-                <NumberStates>3</NumberStates>
-                <State>
-                  <Number>0</Number>
-                  <Text>Pioneer DDJ-400 / FLX4 / DDJ-200</Text>
-                </State>
-                <State>
-                  <Number>1</Number>
-                  <Text>Hercules Inpulse 300 / 500</Text>
-                </State>
-                <State>
-                  <Number>2</Number>
-                  <Text>Numark Mixtrack Platinum FX</Text>
-                </State>
-                <Connection>
-                  <ConfigKey persist="true">[Skin],controller_preset</ConfigKey>
-                </Connection>
-              </PushButton>
+          <!-- Radio button: Pioneer -->
+          <PushButton>
+            <ObjectName>PresetItem0</ObjectName>
+            <Size>0me,40f</Size>
+            <NumberStates>2</NumberStates>
+            <State>
+              <Number>0</Number>
+              <Text>  Pioneer DDJ-400 / FLX4 / DDJ-200</Text>
+            </State>
+            <State>
+              <Number>1</Number>
+              <Text>  &#10003; Pioneer DDJ-400 / FLX4 / DDJ-200</Text>
+            </State>
+            <Connection>
+              <ConfigKey>[Skin],select_preset_0</ConfigKey>
+              <ConnectValueFromWidget>true</ConnectValueFromWidget>
+              <ConnectValueToWidget>false</ConnectValueToWidget>
+            </Connection>
+            <Connection>
+              <ConfigKey persist="false">[Skin],preset_active_0</ConfigKey>
+              <ConnectValueFromWidget>false</ConnectValueFromWidget>
+              <ConnectValueToWidget>true</ConnectValueToWidget>
+            </Connection>
+          </PushButton>
 
+          <!-- Radio button: Hercules -->
+          <PushButton>
+            <ObjectName>PresetItem1</ObjectName>
+            <Size>0me,40f</Size>
+            <NumberStates>2</NumberStates>
+            <State>
+              <Number>0</Number>
+              <Text>  Hercules Inpulse 300 / 500</Text>
+            </State>
+            <State>
+              <Number>1</Number>
+              <Text>  &#10003; Hercules Inpulse 300 / 500</Text>
+            </State>
+            <Connection>
+              <ConfigKey>[Skin],select_preset_1</ConfigKey>
+              <ConnectValueFromWidget>true</ConnectValueFromWidget>
+              <ConnectValueToWidget>false</ConnectValueToWidget>
+            </Connection>
+            <Connection>
+              <ConfigKey persist="false">[Skin],preset_active_1</ConfigKey>
+              <ConnectValueFromWidget>false</ConnectValueFromWidget>
+              <ConnectValueToWidget>true</ConnectValueToWidget>
+            </Connection>
+          </PushButton>
+
+          <!-- Radio button: Numark -->
+          <PushButton>
+            <ObjectName>PresetItem2</ObjectName>
+            <Size>0me,40f</Size>
+            <NumberStates>2</NumberStates>
+            <State>
+              <Number>0</Number>
+              <Text>  Numark Mixtrack Platinum FX</Text>
+            </State>
+            <State>
+              <Number>1</Number>
+              <Text>  &#10003; Numark Mixtrack Platinum FX</Text>
+            </State>
+            <Connection>
+              <ConfigKey>[Skin],select_preset_2</ConfigKey>
+              <ConnectValueFromWidget>true</ConnectValueFromWidget>
+              <ConnectValueToWidget>false</ConnectValueToWidget>
+            </Connection>
+            <Connection>
+              <ConfigKey persist="false">[Skin],preset_active_2</ConfigKey>
+              <ConnectValueFromWidget>false</ConnectValueFromWidget>
+              <ConnectValueToWidget>true</ConnectValueToWidget>
+            </Connection>
+          </PushButton>
+
+          <WidgetGroup>
+            <ObjectName>SettingsInfoRow</ObjectName>
+            <Layout>horizontal</Layout>
+            <Size>0me,22f</Size>
+            <Children>
               <Label>
                 <ObjectName>SettingsInfoLabel</ObjectName>
                 <Text>&#9888; Activer aussi le mapping "Mixxx OS Generic" dans Préférences &#8250; Contrôleurs</Text>
-                <Size>0me,20f</Size>
-              </Label>
-
-            </Children>
-          </WidgetGroup>
-        </Children>
-      </WidgetGroup>
-
-      <!-- ===== DECK INFO ===== -->
-      <WidgetGroup>
-        <ObjectName>SettingsSeparator</ObjectName>
-        <Layout>horizontal</Layout>
-        <Size>0me,2f</Size>
-        <Children/>
-      </WidgetGroup>
-
-      <WidgetGroup>
-        <ObjectName>SettingsSection</ObjectName>
-        <Layout>vertical</Layout>
-        <Size>0me,0me</Size>
-        <Children>
-          <WidgetGroup>
-            <ObjectName>SettingsSectionHeader</ObjectName>
-            <Layout>horizontal</Layout>
-            <Size>0me,30f</Size>
-            <Children>
-              <Label>
-                <ObjectName>SettingsSectionTitle</ObjectName>
-                <Text>DECKS</Text>
+                <Size>0me,22f</Size>
               </Label>
             </Children>
           </WidgetGroup>
 
-          <WidgetGroup>
-            <ObjectName>SettingsRow</ObjectName>
-            <Layout>horizontal</Layout>
-            <Size>0me,70f</Size>
-            <Children>
-              <WidgetGroup>
-                <ObjectName>SettingsKnobGroup</ObjectName>
-                <Layout>vertical</Layout>
-                <Size>100f,0me</Size>
-                <Children>
-                  <Label>
-                    <ObjectName>SettingsKnobLabel</ObjectName>
-                    <Text>Crossfader</Text>
-                    <Size>0me,20f</Size>
-                  </Label>
-                  <Knob>
-                    <ObjectName>SettingsKnobCross</ObjectName>
-                    <TooltipId>crossfader</TooltipId>
-                    <Size>50f,50f</Size>
-                    <Connection>
-                      <ConfigKey>[Master],crossfader</ConfigKey>
-                    </Connection>
-                  </Knob>
-                </Children>
-              </WidgetGroup>
-            </Children>
-          </WidgetGroup>
         </Children>
       </WidgetGroup>
 
