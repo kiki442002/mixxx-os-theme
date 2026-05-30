@@ -2,13 +2,12 @@
   <WidgetGroup>
     <ObjectName>Topbar</ObjectName>
     <Layout>vertical</Layout>
-    <Size>0me,0me</Size>
+    <Size>0me,60f</Size>
     <Children>
-      <!-- Rangée principale : Overview / Browse -->
       <WidgetGroup>
         <ObjectName>TabControls</ObjectName>
         <Layout>horizontal</Layout>
-        <Size>0me,44f</Size>
+        <SizePolicy>me,me</SizePolicy>
         <Children>
           <Template src="skin:tab.xml">
             <SetVariable name="tab_name">Overview</SetVariable>
@@ -18,28 +17,28 @@
             <SetVariable name="tab_name">Browse</SetVariable>
             <SetVariable name="config_key">library</SetVariable>
           </Template>
-        </Children>
-      </WidgetGroup>
-      <!-- Sous-rangée Perform : visible seulement en mode Overview -->
-      <WidgetGroup>
-        <ObjectName>PerformTabBar</ObjectName>
-        <Layout>horizontal</Layout>
-        <Size>0me,24f</Size>
-        <Connection>
-          <ConfigKey>[Tab],overview</ConfigKey>
-          <BindProperty>visible</BindProperty>
-        </Connection>
-        <Children>
-          <PushButton>
-            <ObjectName>TabButtonPerform</ObjectName>
-            <Size>12me,12me</Size>
-            <NumberStates>2</NumberStates>
-            <State><Number>0</Number><Text>Perform</Text></State>
-            <State><Number>1</Number><Text>Perform</Text></State>
-            <Connection>
-              <ConfigKey>[Skin],perform_visible</ConfigKey>
-            </Connection>
-          </PushButton>
+          <!-- Fixed-size slot so layout never shifts when Perform is hidden -->
+          <WidgetGroup>
+            <ObjectName>PerformTabSlot</ObjectName>
+            <Layout>horizontal</Layout>
+            <Size>12me,0me</Size>
+            <Children>
+              <PushButton>
+                <ObjectName>TabButtonPerform</ObjectName>
+                <Size>0me,0me</Size>
+                <NumberStates>2</NumberStates>
+                <State><Number>0</Number><Text>Perform</Text></State>
+                <State><Number>1</Number><Text>Perform</Text></State>
+                <Connection>
+                  <ConfigKey>[Skin],perform_visible</ConfigKey>
+                </Connection>
+                <Connection>
+                  <ConfigKey>[Tab],overview</ConfigKey>
+                  <BindProperty>visible</BindProperty>
+                </Connection>
+              </PushButton>
+            </Children>
+          </WidgetGroup>
         </Children>
       </WidgetGroup>
     </Children>
