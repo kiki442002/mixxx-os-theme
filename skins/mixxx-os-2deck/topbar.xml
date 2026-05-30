@@ -9,11 +9,11 @@
         <Layout>horizontal</Layout>
         <SizePolicy>me,me</SizePolicy>
         <Children>
-          <!-- Invisible 150px placeholder mirrors PerformTabSlot to center the tabs -->
+          <!-- Invisible 180px placeholder mirrors PerformTabSlot to center the tabs -->
           <WidgetGroup>
             <ObjectName>TabLeftPlaceholder</ObjectName>
             <Layout>horizontal</Layout>
-            <Size>150f,0me</Size>
+            <Size>180f,0me</Size>
             <Children/>
           </WidgetGroup>
           <Template src="skin:tab.xml">
@@ -24,11 +24,11 @@
             <SetVariable name="tab_name">Browse</SetVariable>
             <SetVariable name="config_key">library</SetVariable>
           </Template>
-          <!-- Fixed 150px Perform slot — always holds space, button hides inside -->
+          <!-- Fixed 180px Perform slot — always holds space, button hides inside -->
           <WidgetGroup>
             <ObjectName>PerformTabSlot</ObjectName>
             <Layout>horizontal</Layout>
-            <Size>150f,0me</Size>
+            <Size>180f,0me</Size>
             <Children>
               <PushButton>
                 <ObjectName>TabButtonPerform</ObjectName>
