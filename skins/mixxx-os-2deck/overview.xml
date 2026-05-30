@@ -76,6 +76,12 @@
               </Template>
 
               <WidgetGroup>
+                <ObjectName>WaveformZoom_Spacer</ObjectName>
+                <Layout>horizontal</Layout>
+                <Size>0me,8f</Size>
+                <Children/>
+              </WidgetGroup>
+              <WidgetGroup>
                 <ObjectName>BeatFX_Header</ObjectName>
                 <Layout>horizontal</Layout>
                 <Size>0me,10p</Size>
@@ -95,20 +101,6 @@
                     <ObjectName>WaveformZoomOut</ObjectName>
                     <Size>0me,0me</Size>
                     <NumberStates>1</NumberStates>
-                    <State><Number>0</Number><Text>-</Text></State>
-                    <Connection>
-                      <ConfigKey>[Channel1],waveform_zoom_down</ConfigKey>
-                      <ConnectValueFromWidget>true</ConnectValueFromWidget>
-                    </Connection>
-                    <Connection>
-                      <ConfigKey>[Channel2],waveform_zoom_down</ConfigKey>
-                      <ConnectValueFromWidget>true</ConnectValueFromWidget>
-                    </Connection>
-                  </PushButton>
-                  <PushButton>
-                    <ObjectName>WaveformZoomIn</ObjectName>
-                    <Size>0me,0me</Size>
-                    <NumberStates>1</NumberStates>
                     <State><Number>0</Number><Text>+</Text></State>
                     <Connection>
                       <ConfigKey>[Channel1],waveform_zoom_up</ConfigKey>
@@ -116,6 +108,20 @@
                     </Connection>
                     <Connection>
                       <ConfigKey>[Channel2],waveform_zoom_up</ConfigKey>
+                      <ConnectValueFromWidget>true</ConnectValueFromWidget>
+                    </Connection>
+                  </PushButton>
+                  <PushButton>
+                    <ObjectName>WaveformZoomIn</ObjectName>
+                    <Size>0me,0me</Size>
+                    <NumberStates>1</NumberStates>
+                    <State><Number>0</Number><Text>-</Text></State>
+                    <Connection>
+                      <ConfigKey>[Channel1],waveform_zoom_down</ConfigKey>
+                      <ConnectValueFromWidget>true</ConnectValueFromWidget>
+                    </Connection>
+                    <Connection>
+                      <ConfigKey>[Channel2],waveform_zoom_down</ConfigKey>
                       <ConnectValueFromWidget>true</ConnectValueFromWidget>
                     </Connection>
                   </PushButton>
