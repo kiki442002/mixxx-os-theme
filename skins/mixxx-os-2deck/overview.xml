@@ -24,7 +24,7 @@
           <WidgetGroup>
             <ObjectName>BeatFX_Container</ObjectName>
             <Layout>vertical</Layout>
-            <Size>200max,0me</Size>
+            <Size>150max,0me</Size>
             <Children>
               <WidgetGroup>
                 <ObjectName>BeatFX_Header</ObjectName>

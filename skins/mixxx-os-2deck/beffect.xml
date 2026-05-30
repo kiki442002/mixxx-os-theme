@@ -5,6 +5,7 @@
                   <EffectChainPresetSelector>
                     <ObjectName>EffectUnit1_kEffectSelectorLeft</ObjectName>
                     <EffectUnitGroup>[EffectRack1_EffectUnit1]</EffectUnitGroup>
+                    <Size>0me,32f</Size>
                   </EffectChainPresetSelector>
                 <Connection>
                   <ConfigKey persist="true">[Skin],show_eq_knobs</ConfigKey>

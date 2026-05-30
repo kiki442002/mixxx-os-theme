@@ -175,6 +175,7 @@ WEffectChainPresetSelector {
   font-weight: bold;
   padding: 4px;
   text-transform: uppercase;
+  min-height: 30px;
 }
 
 #EffectToggle {
