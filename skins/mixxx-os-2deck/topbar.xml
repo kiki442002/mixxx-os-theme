@@ -9,36 +9,22 @@
         <Layout>horizontal</Layout>
         <SizePolicy>me,me</SizePolicy>
         <Children>
-          <!-- This group fills all space except the 150px Perform slot.
-               Inside, equal spacers (1me each) truly center Overview+Browse. -->
+          <!-- Invisible 150px placeholder mirrors PerformTabSlot to center the tabs -->
           <WidgetGroup>
-            <ObjectName>TabButtonsCenter</ObjectName>
+            <ObjectName>TabLeftPlaceholder</ObjectName>
             <Layout>horizontal</Layout>
-            <Size>0me,0me</Size>
-            <Children>
-              <WidgetGroup>
-                <ObjectName>TabLeftSpacer</ObjectName>
-                <Layout>horizontal</Layout>
-                <Size>1me,0me</Size>
-                <Children/>
-              </WidgetGroup>
-              <Template src="skin:tab.xml">
-                <SetVariable name="tab_name">Overview</SetVariable>
-                <SetVariable name="config_key">overview</SetVariable>
-              </Template>
-              <Template src="skin:tab.xml">
-                <SetVariable name="tab_name">Browse</SetVariable>
-                <SetVariable name="config_key">library</SetVariable>
-              </Template>
-              <WidgetGroup>
-                <ObjectName>TabRightSpacer</ObjectName>
-                <Layout>horizontal</Layout>
-                <Size>1me,0me</Size>
-                <Children/>
-              </WidgetGroup>
-            </Children>
+            <Size>150f,0me</Size>
+            <Children/>
           </WidgetGroup>
-          <!-- Fixed 150px slot — always holds space, Perform button hides inside -->
+          <Template src="skin:tab.xml">
+            <SetVariable name="tab_name">Overview</SetVariable>
+            <SetVariable name="config_key">overview</SetVariable>
+          </Template>
+          <Template src="skin:tab.xml">
+            <SetVariable name="tab_name">Browse</SetVariable>
+            <SetVariable name="config_key">library</SetVariable>
+          </Template>
+          <!-- Fixed 150px Perform slot — always holds space, button hides inside -->
           <WidgetGroup>
             <ObjectName>PerformTabSlot</ObjectName>
             <Layout>horizontal</Layout>

@@ -438,8 +438,7 @@ WLabel {
 }
 
 #PerformTabSlot,
-#TabLeftSpacer,
-#TabRightSpacer {
+#TabLeftPlaceholder {
   background-color: transparent;
 }
 
