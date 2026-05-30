@@ -399,7 +399,7 @@ WLabel {
   background-color: black;
   font-weight: bold;
   margin: 10px 10%;
-  max-width: 180px;
+  max-width: 250px;
   text-transform: uppercase;
 }
 
@@ -422,7 +422,6 @@ WLabel {
   color: #888899;
   font-weight: bold;
   margin: 10px 4px;
-  max-width: none;
   text-transform: uppercase;
 }
 
