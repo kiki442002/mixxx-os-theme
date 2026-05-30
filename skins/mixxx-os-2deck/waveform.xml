@@ -79,6 +79,29 @@
                     <SetVariable name="LeftConnectionControl">[Channel<Variable name="channel"/>],keylock</SetVariable>
                   </Template>
 
+                  <PushButton>
+                    <ObjectName>WaveformInfo_XFaderAssign</ObjectName>
+                    <TooltipId>crossfader_orientation</TooltipId>
+                    <Size>40me,30f</Size>
+                    <NumberStates>3</NumberStates>
+                    <State>
+                      <Number>0</Number>
+                      <Text>◄ A</Text>
+                    </State>
+                    <State>
+                      <Number>1</Number>
+                      <Text>— —</Text>
+                    </State>
+                    <State>
+                      <Number>2</Number>
+                      <Text>B ►</Text>
+                    </State>
+                    <Connection>
+                      <ConfigKey>[Channel<Variable name="channel"/>],orientation</ConfigKey>
+                      <ConnectValueToWidget>true</ConnectValueToWidget>
+                    </Connection>
+                  </PushButton>
+
                 </Children>
               </WidgetGroup>
             </Children>

@@ -391,6 +391,37 @@ WLabel {
   image: url(skin:icons/quantize.svg) no-repeat center center;
 }
 
+#WaveformInfo_XFaderAssign {
+  background-color: #1a1a24;
+  border: 1px solid #444;
+  border-radius: 3px;
+  color: #888;
+  font-size: 9px;
+  font-weight: bold;
+  padding: 0;
+}
+
+/* State 0 = A (left) */
+#WaveformInfo_XFaderAssign[value="0"] {
+  background-color: #1a2a3a;
+  border-color: #3a7fd4;
+  color: #3a7fd4;
+}
+
+/* State 1 = center (no crossfader) */
+#WaveformInfo_XFaderAssign[value="1"] {
+  background-color: #1a1a24;
+  border-color: #444;
+  color: #555;
+}
+
+/* State 2 = B (right) */
+#WaveformInfo_XFaderAssign[value="2"] {
+  background-color: #2a1a3a;
+  border-color: #a050d4;
+  color: #a050d4;
+}
+
 /************************************************************************/
 /*     Tabs                                                             */
 /************************************************************************/
