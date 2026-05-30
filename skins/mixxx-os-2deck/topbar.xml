@@ -2,12 +2,13 @@
   <WidgetGroup>
     <ObjectName>Topbar</ObjectName>
     <Layout>vertical</Layout>
-    <Size>0me,60f</Size>
+    <Size>0me,0me</Size>
     <Children>
+      <!-- Rangée principale : Overview / Browse -->
       <WidgetGroup>
         <ObjectName>TabControls</ObjectName>
         <Layout>horizontal</Layout>
-        <SizePolicy>me,me</SizePolicy>
+        <Size>0me,44f</Size>
         <Children>
           <Template src="skin:tab.xml">
             <SetVariable name="tab_name">Overview</SetVariable>
@@ -17,11 +18,18 @@
             <SetVariable name="tab_name">Browse</SetVariable>
             <SetVariable name="config_key">library</SetVariable>
           </Template>
-          <Template src="skin:tab.xml">
-            <SetVariable name="tab_name">Sampler</SetVariable>
-            <SetVariable name="config_key">samplers</SetVariable>
-          </Template>
-          <!-- PERFORM sub-toggle: only visible in Overview mode -->
+        </Children>
+      </WidgetGroup>
+      <!-- Sous-rangée Perform : visible seulement en mode Overview -->
+      <WidgetGroup>
+        <ObjectName>PerformTabBar</ObjectName>
+        <Layout>horizontal</Layout>
+        <Size>0me,24f</Size>
+        <Connection>
+          <ConfigKey>[Tab],overview</ConfigKey>
+          <BindProperty>visible</BindProperty>
+        </Connection>
+        <Children>
           <PushButton>
             <ObjectName>TabButtonPerform</ObjectName>
             <Size>12me,12me</Size>
@@ -30,24 +38,6 @@
             <State><Number>1</Number><Text>Perform</Text></State>
             <Connection>
               <ConfigKey>[Skin],perform_visible</ConfigKey>
-            </Connection>
-            <Connection>
-              <ConfigKey>[Tab],overview</ConfigKey>
-              <BindProperty>visible</BindProperty>
-            </Connection>
-          </PushButton>
-          <PushButton>
-            <ObjectName>TabButtonConfig</ObjectName>
-            <Size>12me,12me</Size>
-            <NumberStates>1</NumberStates>
-            <State>
-              <Number>0</Number>
-              <Text>Config</Text>
-            </State>
-            <Connection>
-              <ConfigKey>[Controls],open_preferences</ConfigKey>
-              <ConnectValueFromWidget>true</ConnectValueFromWidget>
-              <ConnectValueToWidget>false</ConnectValueToWidget>
             </Connection>
           </PushButton>
         </Children>

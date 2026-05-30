@@ -424,6 +424,21 @@ WLabel {
   color: #2d85cd;
 }
 
+/* Sub-row below main tab bar for Perform toggle */
+#PerformTabBar {
+  background-color: #0a0a10;
+  border-bottom: 1px solid #222230;
+}
+
+#PerformTabBar WPushButton {
+  background-color: transparent;
+  font-size: 10px;
+  font-weight: bold;
+  margin: 2px 10%;
+  max-width: 200px;
+  text-transform: uppercase;
+}
+
 /************************************************************************/
 /*     Samplers                                                         */
 /************************************************************************/
