@@ -639,7 +639,7 @@ WKnob, #SettingsKnob, #SettingsKnobCross {
 }
 
 #PerformDeck {
-  padding: 4px 4px 2px 4px;
+  padding: 2px 4px 1px 4px;
 }
 
 #PerformDivider {
@@ -647,22 +647,22 @@ WKnob, #SettingsKnob, #SettingsKnobCross {
 }
 
 #PerformSectionHeader {
-  padding: 1px 4px 0 4px;
+  padding: 0px 4px;
 }
 
 #PerformSectionTitle {
   color: #555570;
-  font-size: 9px;
+  font-size: 8px;
   font-weight: bold;
   text-transform: uppercase;
 }
 
 /* Hot cue pads – colored border when empty, colored fill when set */
 #HotCuePad1, #HotCuePad2, #HotCuePad3, #HotCuePad4 {
-  border-radius: 4px;
-  font-size: 13px;
+  border-radius: 3px;
+  font-size: 12px;
   font-weight: bold;
-  margin: 2px;
+  margin: 1px;
 }
 
 #HotCuePad1            { border: 2px solid #f44040; color: #f44040; }
@@ -678,8 +678,8 @@ WKnob, #SettingsKnob, #SettingsKnobCross {
 /* Hot cue clear buttons – small, subdued colored border */
 #HotCueClear1, #HotCueClear2, #HotCueClear3, #HotCueClear4 {
   border-radius: 2px;
-  font-size: 9px;
-  margin: 1px 2px;
+  font-size: 8px;
+  margin: 0px 1px;
 }
 
 #HotCueClear1 { border: 1px solid #7a1010; color: #7a1010; }
@@ -695,11 +695,11 @@ WKnob, #SettingsKnob, #SettingsKnobCross {
 /* Beat loop pads */
 #BeatLoopPad {
   border: 2px solid #1a4a22;
-  border-radius: 4px;
+  border-radius: 3px;
   color: #2a6a32;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: bold;
-  margin: 2px;
+  margin: 1px;
 }
 
 #BeatLoopPad:hover {
