@@ -419,7 +419,7 @@ WLabel {
   border: 2px solid #3a3a5c;
   color: #888899;
   font-weight: bold;
-  margin: 10px 5%;
+  margin: 10px 4px;
   text-transform: uppercase;
 }
 
