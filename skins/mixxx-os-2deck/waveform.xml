@@ -79,28 +79,6 @@
                     <SetVariable name="LeftConnectionControl">[Channel<Variable name="channel"/>],keylock</SetVariable>
                   </Template>
 
-                  <PushButton>
-                    <ObjectName>WaveformInfo_ZoomOut</ObjectName>
-                    <Size>20me,30f</Size>
-                    <NumberStates>1</NumberStates>
-                    <State><Number>0</Number><Text>-</Text></State>
-                    <Connection>
-                      <ConfigKey>[Channel<Variable name="channel"/>],waveform_zoom_down</ConfigKey>
-                      <ConnectValueFromWidget>true</ConnectValueFromWidget>
-                    </Connection>
-                  </PushButton>
-
-                  <PushButton>
-                    <ObjectName>WaveformInfo_ZoomIn</ObjectName>
-                    <Size>20me,30f</Size>
-                    <NumberStates>1</NumberStates>
-                    <State><Number>0</Number><Text>+</Text></State>
-                    <Connection>
-                      <ConfigKey>[Channel<Variable name="channel"/>],waveform_zoom_up</ConfigKey>
-                      <ConnectValueFromWidget>true</ConnectValueFromWidget>
-                    </Connection>
-                  </PushButton>
-
                 </Children>
               </WidgetGroup>
 
