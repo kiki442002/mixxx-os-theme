@@ -83,6 +83,10 @@
         <ObjectName>PerformContainer</ObjectName>
         <Layout>horizontal</Layout>
         <Size>0me,0me</Size>
+        <Connection>
+          <ConfigKey>[Skin],perform_visible</ConfigKey>
+          <BindProperty>visible</BindProperty>
+        </Connection>
         <Children>
           <Template src="skin:perform.xml">
             <SetVariable name="channel">1</SetVariable>

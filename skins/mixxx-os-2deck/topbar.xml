@@ -21,6 +21,21 @@
             <SetVariable name="tab_name">Sampler</SetVariable>
             <SetVariable name="config_key">samplers</SetVariable>
           </Template>
+          <!-- PERFORM sub-toggle: only visible in Overview mode -->
+          <PushButton>
+            <ObjectName>TabButtonPerform</ObjectName>
+            <Size>12me,12me</Size>
+            <NumberStates>2</NumberStates>
+            <State><Number>0</Number><Text>Perform</Text></State>
+            <State><Number>1</Number><Text>Perform</Text></State>
+            <Connection>
+              <ConfigKey>[Skin],perform_visible</ConfigKey>
+            </Connection>
+            <Connection>
+              <ConfigKey>[Tab],overview</ConfigKey>
+              <BindProperty>visible</BindProperty>
+            </Connection>
+          </PushButton>
           <PushButton>
             <ObjectName>TabButtonConfig</ObjectName>
             <Size>12me,12me</Size>

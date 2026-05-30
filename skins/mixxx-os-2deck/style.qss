@@ -413,6 +413,17 @@ WLabel {
   color: #c3d541;
 }
 
+/* Perform sub-toggle uses blue accent to distinguish from main tabs */
+#TabButtonPerform[value="0"] {
+  border: 2px solid #2d3a5c;
+  color: #2d3a5c;
+}
+
+#TabButtonPerform[value="1"] {
+  border: 2px solid #2d85cd;
+  color: #2d85cd;
+}
+
 /************************************************************************/
 /*     Samplers                                                         */
 /************************************************************************/
