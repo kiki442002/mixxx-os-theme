@@ -396,7 +396,7 @@ WLabel {
   border: 1px solid #444;
   border-radius: 3px;
   color: #888;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: bold;
   padding: 0;
 }
