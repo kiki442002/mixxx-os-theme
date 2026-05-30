@@ -414,21 +414,26 @@ WLabel {
 }
 
 /* Perform button: dark gray default, solid purple when active */
+/* Higher specificity (#TabControls #TabButtonPerform) overrides the generic rule */
+#TabControls #TabButtonPerform,
 #TabButtonPerform {
   background-color: #2a2a3a;
   border: 2px solid #3a3a5c;
   color: #888899;
   font-weight: bold;
   margin: 10px 4px;
+  max-width: none;
   text-transform: uppercase;
 }
 
+#TabControls #TabButtonPerform[value="1"],
 #TabButtonPerform[value="1"] {
   background-color: #3d0a60;
   border: 2px solid #9d4cfd;
   color: #ffffff;
 }
 
+#TabControls #TabButtonPerform:hover,
 #TabButtonPerform:hover {
   border-color: #9d4cfd;
   color: #cc99ff;
