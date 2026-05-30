@@ -103,11 +103,11 @@
                     <NumberStates>1</NumberStates>
                     <State><Number>0</Number><Text>+</Text></State>
                     <Connection>
-                      <ConfigKey>[Channel1],waveform_zoom_up</ConfigKey>
+                      <ConfigKey>[Channel1],waveform_zoom_down</ConfigKey>
                       <ConnectValueFromWidget>true</ConnectValueFromWidget>
                     </Connection>
                     <Connection>
-                      <ConfigKey>[Channel2],waveform_zoom_up</ConfigKey>
+                      <ConfigKey>[Channel2],waveform_zoom_down</ConfigKey>
                       <ConnectValueFromWidget>true</ConnectValueFromWidget>
                     </Connection>
                   </PushButton>
@@ -117,11 +117,11 @@
                     <NumberStates>1</NumberStates>
                     <State><Number>0</Number><Text>-</Text></State>
                     <Connection>
-                      <ConfigKey>[Channel1],waveform_zoom_down</ConfigKey>
+                      <ConfigKey>[Channel1],waveform_zoom_up</ConfigKey>
                       <ConnectValueFromWidget>true</ConnectValueFromWidget>
                     </Connection>
                     <Connection>
-                      <ConfigKey>[Channel2],waveform_zoom_down</ConfigKey>
+                      <ConfigKey>[Channel2],waveform_zoom_up</ConfigKey>
                       <ConnectValueFromWidget>true</ConnectValueFromWidget>
                     </Connection>
                   </PushButton>
