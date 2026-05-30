@@ -245,6 +245,34 @@
               </WidgetGroup>
             </Children>
           </WidgetGroup>
+          <!-- SYNC / SLIP toggles -->
+          <WidgetGroup>
+            <ObjectName>DeckControlButtons</ObjectName>
+            <Layout>vertical</Layout>
+            <Size>50max,0me</Size>
+            <Children>
+              <PushButton>
+                <ObjectName>DeckSync</ObjectName>
+                <Size>0me,0me</Size>
+                <NumberStates>2</NumberStates>
+                <State><Number>0</Number><Text>SYNC</Text></State>
+                <State><Number>1</Number><Text>SYNC</Text></State>
+                <Connection>
+                  <ConfigKey>[Channel<Variable name="channel"/>],sync_enabled</ConfigKey>
+                </Connection>
+              </PushButton>
+              <PushButton>
+                <ObjectName>DeckSlip</ObjectName>
+                <Size>0me,0me</Size>
+                <NumberStates>2</NumberStates>
+                <State><Number>0</Number><Text>SLIP</Text></State>
+                <State><Number>1</Number><Text>SLIP</Text></State>
+                <Connection>
+                  <ConfigKey>[Channel<Variable name="channel"/>],slip_enabled</ConfigKey>
+                </Connection>
+              </PushButton>
+            </Children>
+          </WidgetGroup>
         </Children>
         <Connection>
           <ConfigKey>[Tab],overview</ConfigKey>

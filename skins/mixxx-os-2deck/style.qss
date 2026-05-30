@@ -22,6 +22,11 @@ White: #e5e6ea
 QMenuBar, QMenuBar::item, QMenu, QMenu::item {
   background-color: black;
   color: gray;
+  font-size: 16px;
+}
+
+QMenu::item {
+  padding: 6px 12px;
 }
 
 QMenuBar::item:pressed, QMenu::item:selected, QMenu::item:pressed {
@@ -312,6 +317,32 @@ WLabel {
   margin: 4px;
 }
 
+#SidebarButton[value="1"] {
+  background-color: #2d85cd;
+  border: 2px solid #2d85cd;
+  color: #e5e6ea;
+}
+
+#UsbFocusButton,
+#UsbUpButton,
+#UsbDownButton,
+#UsbOpenButton {
+  background-color: rgba(0,0,0,0.2);
+  border: 2px solid #909090;
+  border-radius: 4px;
+  color: #e5e6ea;
+  font-size: 15px;
+  font-weight: bold;
+  margin: 4px 2px;
+}
+
+#UsbFocusButton:hover,
+#UsbUpButton:hover,
+#UsbDownButton:hover,
+#UsbOpenButton:hover {
+  border: 2px solid #2d85cd;
+}
+
 /************************************************************************/
 /*     Waveforms                                                        */
 /************************************************************************/
@@ -585,3 +616,109 @@ WKnob, #SettingsKnob, #SettingsKnobCross {
   border-color: #5ba8e0;
   color: #5ba8e0;
 }
+
+/************************************************************************/
+/*     Perform: Hot Cue + Beat Loop pads                               */
+/************************************************************************/
+
+#PerformContainer {
+  background-color: #111118;
+  border-top: 1px solid #222230;
+  border-bottom: 1px solid #222230;
+}
+
+#PerformDeck {
+  padding: 4px 4px 2px 4px;
+}
+
+#PerformDivider {
+  background-color: #222230;
+}
+
+#PerformSectionHeader {
+  padding: 1px 4px 0 4px;
+}
+
+#PerformSectionTitle {
+  color: #555570;
+  font-size: 9px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Hot cue pads – colored border when empty, colored fill when set */
+#HotCuePad1, #HotCuePad2, #HotCuePad3, #HotCuePad4 {
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: bold;
+  margin: 2px;
+}
+
+#HotCuePad1            { border: 2px solid #f44040; color: #f44040; }
+#HotCuePad2            { border: 2px solid #0ddcf2; color: #0ddcf2; }
+#HotCuePad3            { border: 2px solid #a5df13; color: #a5df13; }
+#HotCuePad4            { border: 2px solid #9d4cfd; color: #9d4cfd; }
+
+#HotCuePad1[value="1"] { background-color: #f44040; color: #000; }
+#HotCuePad2[value="1"] { background-color: #0ddcf2; color: #000; }
+#HotCuePad3[value="1"] { background-color: #a5df13; color: #000; }
+#HotCuePad4[value="1"] { background-color: #9d4cfd; color: #000; }
+
+/* Hot cue clear buttons – small, subdued colored border */
+#HotCueClear1, #HotCueClear2, #HotCueClear3, #HotCueClear4 {
+  border-radius: 2px;
+  font-size: 9px;
+  margin: 1px 2px;
+}
+
+#HotCueClear1 { border: 1px solid #7a1010; color: #7a1010; }
+#HotCueClear2 { border: 1px solid #0a6a78; color: #0a6a78; }
+#HotCueClear3 { border: 1px solid #4a6a05; color: #4a6a05; }
+#HotCueClear4 { border: 1px solid #4a1a7a; color: #4a1a7a; }
+
+#HotCueClear1:hover { border-color: #f44040; color: #f44040; }
+#HotCueClear2:hover { border-color: #0ddcf2; color: #0ddcf2; }
+#HotCueClear3:hover { border-color: #a5df13; color: #a5df13; }
+#HotCueClear4:hover { border-color: #9d4cfd; color: #9d4cfd; }
+
+/* Beat loop pads */
+#BeatLoopPad {
+  border: 2px solid #1a4a22;
+  border-radius: 4px;
+  color: #2a6a32;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 2px;
+}
+
+#BeatLoopPad:hover {
+  border-color: #2a6a32;
+  color: #4a9a52;
+}
+
+#BeatLoopPad[value="1"] {
+  background-color: #6ee128;
+  border-color: #6ee128;
+  color: #000;
+}
+
+/* SYNC / SLIP deck control buttons */
+#DeckControlButtons {
+  margin: 2px;
+  qproperty-layoutAlignment: 'AlignVCenter | AlignHCenter';
+}
+
+#DeckSync, #DeckSlip {
+  border-radius: 3px;
+  font-size: 9px;
+  font-weight: bold;
+  margin: 2px;
+  padding: 2px 4px;
+}
+
+#DeckSync           { border: 1px solid #1a3a5c; color: #1a3a5c; }
+#DeckSync[value="1"] { border-color: #2d85cd; color: #2d85cd; background-color: #0a1e30; }
+
+#DeckSlip           { border: 1px solid #3a1010; color: #3a1010; }
+#DeckSlip[value="1"] { border-color: #d73535; color: #d73535; background-color: #1e0505; }
+

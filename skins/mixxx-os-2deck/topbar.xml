@@ -2,7 +2,7 @@
   <WidgetGroup>
     <ObjectName>Topbar</ObjectName>
     <Layout>vertical</Layout>
-    <Size>0me,50f</Size>
+    <Size>0me,60f</Size>
     <Children>
       <WidgetGroup>
         <ObjectName>TabControls</ObjectName>
@@ -21,10 +21,20 @@
             <SetVariable name="tab_name">Sampler</SetVariable>
             <SetVariable name="config_key">samplers</SetVariable>
           </Template>
-          <Template src="skin:tab.xml">
-            <SetVariable name="tab_name">Config</SetVariable>
-            <SetVariable name="config_key">settings</SetVariable>
-          </Template>
+          <PushButton>
+            <ObjectName>TabButtonConfig</ObjectName>
+            <Size>12me,12me</Size>
+            <NumberStates>1</NumberStates>
+            <State>
+              <Number>0</Number>
+              <Text>Config</Text>
+            </State>
+            <Connection>
+              <ConfigKey>[Controls],open_preferences</ConfigKey>
+              <ConnectValueFromWidget>true</ConnectValueFromWidget>
+              <ConnectValueToWidget>false</ConnectValueToWidget>
+            </Connection>
+          </PushButton>
         </Children>
       </WidgetGroup>
     </Children>
