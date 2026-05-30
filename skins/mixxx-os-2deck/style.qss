@@ -413,19 +413,25 @@ WLabel {
   color: #c3d541;
 }
 
-/* Perform button: always blue border; fills solid blue when active */
+/* Perform button: dark gray default, solid purple when active */
 #TabButtonPerform {
-  background-color: transparent;
-  border: 2px solid #2d85cd;
-  color: #2d85cd;
+  background-color: #2a2a3a;
+  border: 2px solid #3a3a5c;
+  color: #888899;
   font-weight: bold;
   margin: 10px 5%;
   text-transform: uppercase;
 }
 
 #TabButtonPerform[value="1"] {
-  background-color: #2d85cd;
+  background-color: #3d0a60;
+  border: 2px solid #9d4cfd;
   color: #ffffff;
+}
+
+#TabButtonPerform:hover {
+  border-color: #9d4cfd;
+  color: #cc99ff;
 }
 
 #PerformTabSlot,
@@ -661,9 +667,10 @@ WKnob, #SettingsKnob, #SettingsKnobCross {
 }
 
 #PerformSectionTitle {
-  color: #555570;
-  font-size: 8px;
+  color: #9090b0;
+  font-size: 11px;
   font-weight: bold;
+  letter-spacing: 1px;
   text-transform: uppercase;
 }
 
@@ -723,9 +730,20 @@ WKnob, #SettingsKnob, #SettingsKnobCross {
   color: #000;
 }
 
-/* SYNC / SLIP deck control buttons */
+/* Rate range cycle overlay — transparent, hover shows subtle highlight */
+#RateRangeCycleButton {
+  background-color: transparent;
+  border: none;
+}
+
+#RateRangeCycleButton:hover {
+  background-color: rgba(255, 255, 255, 20);
+  border-radius: 2px;
+}
+
+
 #DeckControlButtons {
-  margin: 2px;
+  margin-left: 8px;
   qproperty-layoutAlignment: 'AlignVCenter | AlignHCenter';
 }
 
@@ -737,9 +755,9 @@ WKnob, #SettingsKnob, #SettingsKnobCross {
   padding: 2px 4px;
 }
 
-#DeckSync           { border: 1px solid #1a3a5c; color: #1a3a5c; }
+#DeckSync            { border: 1px solid #2d5a8a; color: #2d5a8a; }
 #DeckSync[value="1"] { border-color: #2d85cd; color: #2d85cd; background-color: #0a1e30; }
 
-#DeckSlip           { border: 1px solid #3a1010; color: #3a1010; }
+#DeckSlip            { border: 1px solid #8a2020; color: #8a2020; }
 #DeckSlip[value="1"] { border-color: #d73535; color: #d73535; background-color: #1e0505; }
 
