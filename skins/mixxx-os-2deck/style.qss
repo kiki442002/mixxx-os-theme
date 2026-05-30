@@ -398,8 +398,7 @@ WLabel {
 #TabControls WPushButton {
   background-color: black;
   font-weight: bold;
-  margin: 10px 10%;
-  max-width: 250px;
+  margin: 10px 15%;
   text-transform: uppercase;
 }
 
