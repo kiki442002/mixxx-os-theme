@@ -9,6 +9,13 @@
         <Layout>horizontal</Layout>
         <SizePolicy>me,me</SizePolicy>
         <Children>
+          <!-- Left spacer — mirrors PerformTabSlot width to keep Overview+Browse centered -->
+          <WidgetGroup>
+            <ObjectName>TabLeftSpacer</ObjectName>
+            <Layout>horizontal</Layout>
+            <Size>1me,0me</Size>
+            <Children/>
+          </WidgetGroup>
           <Template src="skin:tab.xml">
             <SetVariable name="tab_name">Overview</SetVariable>
             <SetVariable name="config_key">overview</SetVariable>
@@ -17,11 +24,18 @@
             <SetVariable name="tab_name">Browse</SetVariable>
             <SetVariable name="config_key">library</SetVariable>
           </Template>
-          <!-- Fixed-size slot so layout never shifts when Perform is hidden -->
+          <!-- Right spacer -->
+          <WidgetGroup>
+            <ObjectName>TabRightSpacer</ObjectName>
+            <Layout>horizontal</Layout>
+            <Size>1me,0me</Size>
+            <Children/>
+          </WidgetGroup>
+          <!-- Fixed-size Perform slot — always reserves space, button hides inside it -->
           <WidgetGroup>
             <ObjectName>PerformTabSlot</ObjectName>
             <Layout>horizontal</Layout>
-            <Size>12me,0me</Size>
+            <Size>150f,0me</Size>
             <Children>
               <PushButton>
                 <ObjectName>TabButtonPerform</ObjectName>

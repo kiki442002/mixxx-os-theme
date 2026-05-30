@@ -399,7 +399,7 @@ WLabel {
   background-color: black;
   font-weight: bold;
   margin: 10px 10%;
-  max-width: 250px;
+  max-width: 180px;
   text-transform: uppercase;
 }
 
@@ -413,19 +413,24 @@ WLabel {
   color: #c3d541;
 }
 
-/* Perform sub-toggle uses blue accent to distinguish from main tabs */
-#TabButtonPerform[value="0"] {
-  border: 2px solid #2d3a5c;
-  color: #2d3a5c;
+/* Perform button: always blue border; fills solid blue when active */
+#TabButtonPerform {
+  background-color: transparent;
+  border: 2px solid #2d85cd;
+  color: #2d85cd;
+  font-weight: bold;
+  margin: 10px 5%;
+  text-transform: uppercase;
 }
 
 #TabButtonPerform[value="1"] {
-  border: 2px solid #2d85cd;
-  color: #2d85cd;
+  background-color: #2d85cd;
+  color: #ffffff;
 }
 
-#PerformTabSlot {
-  /* Transparent placeholder — keeps space when Perform button is hidden */
+#PerformTabSlot,
+#TabLeftSpacer,
+#TabRightSpacer {
   background-color: transparent;
 }
 
@@ -665,7 +670,7 @@ WKnob, #SettingsKnob, #SettingsKnobCross {
 /* Hot cue pads – colored border when empty, colored fill when set */
 #HotCuePad1, #HotCuePad2, #HotCuePad3, #HotCuePad4 {
   border-radius: 3px;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: bold;
   margin: 1px;
 }
