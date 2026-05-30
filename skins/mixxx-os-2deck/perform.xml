@@ -9,7 +9,7 @@
       <WidgetGroup>
         <ObjectName>PerformSectionHeader</ObjectName>
         <Layout>horizontal</Layout>
-        <Size>0me,10f</Size>
+        <Size>0me,14f</Size>
         <Children>
           <Label>
             <ObjectName>PerformSectionTitle</ObjectName>
@@ -149,10 +149,17 @@
       </WidgetGroup>
 
       <!-- ═══ BEAT LOOP ═══ -->
+      <!-- Spacer for visual separation from HOT CUE section -->
+      <WidgetGroup>
+        <ObjectName>PerformSectionSpacer</ObjectName>
+        <Layout>horizontal</Layout>
+        <Size>0me,8f</Size>
+        <Children/>
+      </WidgetGroup>
       <WidgetGroup>
         <ObjectName>PerformSectionHeader</ObjectName>
         <Layout>horizontal</Layout>
-        <Size>0me,10f</Size>
+        <Size>0me,14f</Size>
         <Children>
           <Label>
             <ObjectName>PerformSectionTitle</ObjectName>

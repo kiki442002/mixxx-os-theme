@@ -82,7 +82,7 @@
       <WidgetGroup>
         <ObjectName>PerformContainer</ObjectName>
         <Layout>horizontal</Layout>
-        <Size>0me,138f</Size>
+        <Size>0me,153f</Size>
         <Connection>
           <ConfigKey>[Skin],perform_visible</ConfigKey>
           <BindProperty>visible</BindProperty>

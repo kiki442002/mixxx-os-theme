@@ -730,6 +730,13 @@ WKnob, #SettingsKnob, #SettingsKnobCross {
   color: #000;
 }
 
+/* Spacer between HOT CUE and BEAT LOOP sections — subtle divider */
+#PerformSectionSpacer {
+  background-color: transparent;
+  border-bottom: 1px solid #1e1e2e;
+  margin: 0 4px;
+}
+
 /* Rate range cycle overlay — transparent, hover shows subtle highlight */
 #RateRangeCycleButton {
   background-color: transparent;
