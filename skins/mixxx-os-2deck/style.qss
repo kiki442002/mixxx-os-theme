@@ -392,6 +392,24 @@ WLabel {
   image: url(skin:icons/quantize.svg) no-repeat center center;
 }
 
+#WaveformInfo_ZoomIn,
+#WaveformInfo_ZoomOut {
+  background-color: #1a1a24;
+  border: 1px solid #333;
+  border-radius: 3px;
+  color: #888;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0;
+}
+
+#WaveformInfo_ZoomIn:hover,
+#WaveformInfo_ZoomOut:hover {
+  background-color: #2a2a3a;
+  border-color: #666;
+  color: #ccc;
+}
+
 #WaveformInfo_XFaderAssign {
   background-color: #1a1a24;
   border: 1px solid #444;
