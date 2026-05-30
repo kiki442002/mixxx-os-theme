@@ -94,7 +94,7 @@
                   <PushButton>
                     <ObjectName>WaveformInfo_XFaderAssign</ObjectName>
                     <TooltipId>crossfader_orientation</TooltipId>
-                    <Size>0me,22f</Size>
+                    <Size>0me,28f</Size>
                     <NumberStates>3</NumberStates>
                     <State>
                       <Number>0</Number>
