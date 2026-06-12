@@ -1,0 +1,197 @@
+<Template>
+  <WidgetGroup>
+    <ObjectName>Settings</ObjectName>
+    <Layout>vertical</Layout>
+    <Size>0me,0me</Size>
+    <Children>
+
+      <!-- ===== AUDIO OUTPUT ===== -->
+      <WidgetGroup>
+        <ObjectName>SettingsSection</ObjectName>
+        <Layout>vertical</Layout>
+        <Size>0me,0me</Size>
+        <Children>
+          <WidgetGroup>
+            <ObjectName>SettingsSectionHeader</ObjectName>
+            <Layout>horizontal</Layout>
+            <Size>0me,30f</Size>
+            <Children>
+              <Label>
+                <ObjectName>SettingsSectionTitle</ObjectName>
+                <Text>SORTIE AUDIO</Text>
+              </Label>
+            </Children>
+          </WidgetGroup>
+
+          <!-- Sortie Master -->
+          <WidgetGroup>
+            <ObjectName>SettingsRow</ObjectName>
+            <Layout>horizontal</Layout>
+            <Size>0me,40f</Size>
+            <Children>
+              <Label>
+                <ObjectName>SettingsRowLabel</ObjectName>
+                <Text>Sortie Master</Text>
+                <Size>140f,40f</Size>
+              </Label>
+              <Label>
+                <ObjectName>SettingsRowHint</ObjectName>
+                <Text>Carte son principale — sélectionner dans Préférences</Text>
+                <Size>0me,40f</Size>
+              </Label>
+              <PushButton>
+                <ObjectName>SettingsOpenPrefsButton</ObjectName>
+                <Size>100f,30f</Size>
+                <NumberStates>1</NumberStates>
+                <State>
+                  <Number>0</Number>
+                  <Text>Configurer</Text>
+                </State>
+                <Connection>
+                  <ConfigKey>[Controls],open_preferences</ConfigKey>
+                  <ConnectValueFromWidget>true</ConnectValueFromWidget>
+                  <ConnectValueToWidget>false</ConnectValueToWidget>
+                </Connection>
+              </PushButton>
+            </Children>
+          </WidgetGroup>
+
+          <!-- Sortie Casque -->
+          <WidgetGroup>
+            <ObjectName>SettingsRow</ObjectName>
+            <Layout>horizontal</Layout>
+            <Size>0me,40f</Size>
+            <Children>
+              <Label>
+                <ObjectName>SettingsRowLabel</ObjectName>
+                <Text>Sortie Casque</Text>
+                <Size>140f,40f</Size>
+              </Label>
+              <Label>
+                <ObjectName>SettingsRowHint</ObjectName>
+                <Text>Sortie monitoring — sélectionner dans Préférences</Text>
+                <Size>0me,40f</Size>
+              </Label>
+              <PushButton>
+                <ObjectName>SettingsOpenPrefsButton</ObjectName>
+                <Size>100f,30f</Size>
+                <NumberStates>1</NumberStates>
+                <State>
+                  <Number>0</Number>
+                  <Text>Configurer</Text>
+                </State>
+                <Connection>
+                  <ConfigKey>[Controls],open_preferences</ConfigKey>
+                  <ConnectValueFromWidget>true</ConnectValueFromWidget>
+                  <ConnectValueToWidget>false</ConnectValueToWidget>
+                </Connection>
+              </PushButton>
+            </Children>
+          </WidgetGroup>
+
+        </Children>
+      </WidgetGroup>
+
+      <!-- ===== SEPARATOR ===== -->
+      <WidgetGroup>
+        <ObjectName>SettingsSeparator</ObjectName>
+        <Layout>horizontal</Layout>
+        <Size>0me,2f</Size>
+        <Children/>
+      </WidgetGroup>
+
+      <!-- ===== PISTE ACTIVE (crossfader cut) ===== -->
+      <WidgetGroup>
+        <ObjectName>SettingsSection</ObjectName>
+        <Layout>vertical</Layout>
+        <Size>0me,0me</Size>
+        <Children>
+          <WidgetGroup>
+            <ObjectName>SettingsSectionHeader</ObjectName>
+            <Layout>horizontal</Layout>
+            <Size>0me,30f</Size>
+            <Children>
+              <Label>
+                <ObjectName>SettingsSectionTitle</ObjectName>
+                <Text>PISTE ACTIVE</Text>
+              </Label>
+            </Children>
+          </WidgetGroup>
+
+          <WidgetGroup>
+            <ObjectName>SettingsInfoRow</ObjectName>
+            <Layout>horizontal</Layout>
+            <Size>0me,22f</Size>
+            <Children>
+              <Label>
+                <ObjectName>SettingsInfoLabel</ObjectName>
+                <Text>Coupe le crossfader vers la piste sélectionnée :</Text>
+                <Size>0me,22f</Size>
+              </Label>
+            </Children>
+          </WidgetGroup>
+
+          <!-- Radio: Piste 1 -->
+          <PushButton>
+            <ObjectName>DeckItem0</ObjectName>
+            <Size>0me,40f</Size>
+            <NumberStates>2</NumberStates>
+            <State>
+              <Number>0</Number>
+              <Text>  Piste 1</Text>
+            </State>
+            <State>
+              <Number>1</Number>
+              <Text>  &#10003; Piste 1</Text>
+            </State>
+            <Connection>
+              <ConfigKey>[Skin],select_deck_1</ConfigKey>
+              <ConnectValueFromWidget>true</ConnectValueFromWidget>
+              <ConnectValueToWidget>false</ConnectValueToWidget>
+            </Connection>
+            <Connection>
+              <ConfigKey persist="false">[Skin],deck_active_1</ConfigKey>
+              <ConnectValueFromWidget>false</ConnectValueFromWidget>
+              <ConnectValueToWidget>true</ConnectValueToWidget>
+            </Connection>
+          </PushButton>
+
+          <!-- Radio: Piste 2 -->
+          <PushButton>
+            <ObjectName>DeckItem1</ObjectName>
+            <Size>0me,40f</Size>
+            <NumberStates>2</NumberStates>
+            <State>
+              <Number>0</Number>
+              <Text>  Piste 2</Text>
+            </State>
+            <State>
+              <Number>1</Number>
+              <Text>  &#10003; Piste 2</Text>
+            </State>
+            <Connection>
+              <ConfigKey>[Skin],select_deck_2</ConfigKey>
+              <ConnectValueFromWidget>true</ConnectValueFromWidget>
+              <ConnectValueToWidget>false</ConnectValueToWidget>
+            </Connection>
+            <Connection>
+              <ConfigKey persist="false">[Skin],deck_active_2</ConfigKey>
+              <ConnectValueFromWidget>false</ConnectValueFromWidget>
+              <ConnectValueToWidget>true</ConnectValueToWidget>
+            </Connection>
+          </PushButton>
+
+        </Children>
+      </WidgetGroup>
+
+      <!-- ===== SEPARATOR ===== -->
+      <WidgetGroup>
+        <ObjectName>SettingsSeparator</ObjectName>
+        <Layout>horizontal</Layout>
+        <Size>0me,2f</Size>
+        <Children/>
+      </WidgetGroup>
+
+    </Children>
+  </WidgetGroup>
+</Template>

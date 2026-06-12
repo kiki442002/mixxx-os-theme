@@ -173,21 +173,41 @@
             <Layout>vertical</Layout>
             <Size>65max,40max</Size>
             <Children>              
+              <!-- Stacked: RateRange display underneath, clickable PushButton on top -->
               <WidgetGroup>
                 <ObjectName>DeckBPMRangePercent</ObjectName>
                 <Size>30me,16f</Size>
-                <Layout>horizontal</Layout>
+                <Layout>stacked</Layout>
                 <Children>
-                  <Label>
-                    <ObjectName>BPMRangePlusMinus</ObjectName>
-                    <Text>&#177;</Text>
-                  </Label>
-                  <RateRange>
-                    <TooltipId>rate_range_display</TooltipId>
-                    <ObjectName>RateDisplay</ObjectName>
-                    <Channel><Variable name="channel" /></Channel>
-                    <Display>range</Display>
-                  </RateRange>
+                  <WidgetGroup>
+                    <ObjectName>DeckBPMRangeDisplay</ObjectName>
+                    <Layout>horizontal</Layout>
+                    <Size>0me,0me</Size>
+                    <Children>
+                      <Label>
+                        <ObjectName>BPMRangePlusMinus</ObjectName>
+                        <Text>&#177;</Text>
+                      </Label>
+                      <RateRange>
+                        <TooltipId>rate_range_display</TooltipId>
+                        <ObjectName>RateDisplay</ObjectName>
+                        <Channel><Variable name="channel" /></Channel>
+                        <Display>range</Display>
+                      </RateRange>
+                    </Children>
+                  </WidgetGroup>
+                  <!-- Transparent overlay that cycles rate range on click -->
+                  <PushButton>
+                    <ObjectName>RateRangeCycleButton</ObjectName>
+                    <Size>0me,0me</Size>
+                    <NumberStates>1</NumberStates>
+                    <State><Number>0</Number><Text></Text></State>
+                    <Connection>
+                      <ConfigKey>[Channel<Variable name="channel"/>],rate_range_up</ConfigKey>
+                      <ConnectValueFromWidget>true</ConnectValueFromWidget>
+                      <ConnectValueToWidget>false</ConnectValueToWidget>
+                    </Connection>
+                  </PushButton>
                 </Children>
               </WidgetGroup>
               <WidgetGroup>
@@ -243,6 +263,34 @@
                   </WidgetGroup>
                 </Children>
               </WidgetGroup>
+            </Children>
+          </WidgetGroup>
+          <!-- SYNC / SLIP toggles -->
+          <WidgetGroup>
+            <ObjectName>DeckControlButtons</ObjectName>
+            <Layout>vertical</Layout>
+            <Size>50max,0me</Size>
+            <Children>
+              <PushButton>
+                <ObjectName>DeckSync</ObjectName>
+                <Size>0me,0me</Size>
+                <NumberStates>2</NumberStates>
+                <State><Number>0</Number><Text>SYNC</Text></State>
+                <State><Number>1</Number><Text>SYNC</Text></State>
+                <Connection>
+                  <ConfigKey>[Channel<Variable name="channel"/>],sync_enabled</ConfigKey>
+                </Connection>
+              </PushButton>
+              <PushButton>
+                <ObjectName>DeckSlip</ObjectName>
+                <Size>0me,0me</Size>
+                <NumberStates>2</NumberStates>
+                <State><Number>0</Number><Text>SLIP</Text></State>
+                <State><Number>1</Number><Text>SLIP</Text></State>
+                <Connection>
+                  <ConfigKey>[Channel<Variable name="channel"/>],slip_enabled</ConfigKey>
+                </Connection>
+              </PushButton>
             </Children>
           </WidgetGroup>
         </Children>

@@ -19,18 +19,60 @@
               </SearchBox>
               <PushButton>
                 <ObjectName>SidebarButton</ObjectName>
-                <Size>80p,40p</Size>
+                <Size>180p,40p</Size>
                 <NumberStates>2</NumberStates>
                 <State>
                   <Number>0</Number>
-                  <Text>Show &#8612;</Text>
+                  <Text>Show Browser</Text>
                 </State>
                 <State>
                   <Number>1</Number>
-                  <Text>Hide &#8614;</Text>
+                  <Text>Hide Browser</Text>
                 </State>
                 <Connection>
                   <ConfigKey>[Sidebar],sidebar_visible</ConfigKey>
+                </Connection>
+              </PushButton>
+              <PushButton>
+                <ObjectName>UsbUpButton</ObjectName>
+                <Size>60p,40p</Size>
+                <NumberStates>1</NumberStates>
+                <State>
+                  <Number>0</Number>
+                  <Text>&#8593;</Text>
+                </State>
+                <Connection>
+                  <ConfigKey>[Library],MoveUp</ConfigKey>
+                  <ConnectValueFromWidget>true</ConnectValueFromWidget>
+                  <ConnectValueToWidget>false</ConnectValueToWidget>
+                </Connection>
+              </PushButton>
+              <PushButton>
+                <ObjectName>UsbDownButton</ObjectName>
+                <Size>60p,40p</Size>
+                <NumberStates>1</NumberStates>
+                <State>
+                  <Number>0</Number>
+                  <Text>&#8595;</Text>
+                </State>
+                <Connection>
+                  <ConfigKey>[Library],MoveDown</ConfigKey>
+                  <ConnectValueFromWidget>true</ConnectValueFromWidget>
+                  <ConnectValueToWidget>false</ConnectValueToWidget>
+                </Connection>
+              </PushButton>
+              <PushButton>
+                <ObjectName>UsbOpenButton</ObjectName>
+                <Size>150p,40p</Size>
+                <NumberStates>1</NumberStates>
+                <State>
+                  <Number>0</Number>
+                  <Text>Open Selected</Text>
+                </State>
+                <Connection>
+                  <ConfigKey>[Library],MoveHorizontal</ConfigKey>
+                  <ConnectValueFromWidget>true</ConnectValueFromWidget>
+                  <ConnectValueToWidget>false</ConnectValueToWidget>
                 </Connection>
               </PushButton>
             </Children>
@@ -52,11 +94,6 @@
                     <TrackTableBackgroundColorOpacity>0.4</TrackTableBackgroundColorOpacity>
                   </Library>
                 </Children>
-                <Connection>
-                  <ConfigKey>[Sidebar],sidebar_visible</ConfigKey>
-                  <BindProperty>visible</BindProperty>
-                  <Transform><Not/></Transform>
-                </Connection>
               </WidgetGroup>
               <WidgetGroup>
                 <ObjectName>SidebarWrapper</ObjectName>
@@ -86,12 +123,6 @@
           </Template>
           <Template src="skin:deck.xml">
             <SetVariable name="channel">2</SetVariable>
-          </Template>
-          <Template src="skin:deck.xml">
-            <SetVariable name="channel">3</SetVariable>
-          </Template>
-          <Template src="skin:deck.xml">
-            <SetVariable name="channel">4</SetVariable>
           </Template>
         </Children>
       </WidgetGroup>
