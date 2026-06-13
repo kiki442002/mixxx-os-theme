@@ -706,6 +706,180 @@ WKnob, #SettingsKnob, #SettingsKnobCross {
   color: #5ba8e0;
 }
 
+/* ===== Server config row (old static URL display - kept for compatibility) ===== */
+#SettingsServerRow {
+  padding: 8px;
+  qproperty-layoutAlignment: 'AlignLeft | AlignVCenter';
+}
+
+#SettingsServerLabel {
+  color: #e5e6ea;
+  font-size: 13px;
+  font-weight: bold;
+  qproperty-layoutAlignment: 'AlignLeft | AlignVCenter';
+}
+
+#SettingsServerUrl {
+  color: #c3d541;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  qproperty-layoutAlignment: 'AlignLeft | AlignVCenter';
+}
+
+/* ===== OS server status dot ===== */
+#OSServerStatus {
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 0 8px;
+}
+
+#OSServerStatus[value="0"] {
+  background-color: #1a0a0a;
+  border: 1px solid #5a1a1a;
+  color: #d73535;
+}
+
+#OSServerStatus[value="1"] {
+  background-color: #0a1a0a;
+  border: 1px solid #2a5a2a;
+  color: #6ee128;
+}
+
+/* ===== Cycle buttons (API / samplerate / latency / decks) ===== */
+#OSConfigCycleButton {
+  background-color: #12121c;
+  border: 1px solid #2a2a3c;
+  border-radius: 5px;
+  color: #c3d541;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin: 4px 0;
+  text-align: left;
+  padding: 0 12px;
+}
+
+#OSConfigCycleButton:hover {
+  background-color: #1a1a2a;
+  border-color: #c3d541;
+}
+
+/* ===== Action buttons ===== */
+#SettingsActionsRow {
+  padding: 8px;
+  qproperty-layoutAlignment: 'AlignLeft | AlignVCenter';
+}
+
+#OSActionSave {
+  background-color: #0a1a0a;
+  border: 1px solid #2a5a2a;
+  border-radius: 5px;
+  color: #6ee128;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 4px 4px;
+  padding: 0 10px;
+}
+
+#OSActionSave:hover {
+  background-color: #102010;
+  border-color: #6ee128;
+}
+
+#OSActionReload {
+  background-color: #0a0a1a;
+  border: 1px solid #1a3a5a;
+  border-radius: 5px;
+  color: #2d85cd;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 4px 4px;
+  padding: 0 10px;
+}
+
+#OSActionReload:hover {
+  background-color: #0f1525;
+  border-color: #2d85cd;
+}
+
+#OSActionRestart {
+  background-color: #1a0a0a;
+  border: 1px solid #5a2020;
+  border-radius: 5px;
+  color: #d73535;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 4px 4px;
+  padding: 0 10px;
+}
+
+#OSActionRestart:hover {
+  background-color: #251010;
+  border-color: #d73535;
+}
+
+/* Audio output / MIDI display-only buttons */
+#OSConfigCycleDisplay {
+  background-color: #0e1020;
+  border: 1px solid #2d3050;
+  border-radius: 4px;
+  color: #c8d0f0;
+  font-size: 12px;
+  margin: 0 2px;
+  padding: 0 8px;
+}
+
+/* "▶" next-output and "▶" next-script arrow buttons */
+#OSActionNext {
+  background-color: #101828;
+  border: 1px solid #283060;
+  border-radius: 4px;
+  color: #4090d0;
+  font-size: 13px;
+  font-weight: bold;
+  margin: 0 2px;
+}
+
+#OSActionNext:hover {
+  background-color: #182040;
+  border-color: #4090d0;
+  color: #80c0f0;
+}
+
+/* MIDI slot state indicator: VIDE / INACTIF / ACTIF */
+#OSMidiSlotState {
+  border: 1px solid #2d3050;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  margin: 0 2px;
+}
+
+#OSMidiSlotState[value="0"] { background-color: #0e0e18; color: #3a3a60; }
+#OSMidiSlotState[value="1"] { background-color: #1a1200; color: #a06010; border-color: #604020; }
+#OSMidiSlotState[value="2"] { background-color: #0a1a0a; color: #40c040; border-color: #206020; }
+
+/* On/Off toggle button */
+#OSActionToggle {
+  background-color: #101828;
+  border: 1px solid #283060;
+  border-radius: 4px;
+  color: #8090b0;
+  font-size: 11px;
+  margin: 0 2px;
+}
+
+#OSActionToggle:hover {
+  background-color: #182040;
+  border-color: #4090d0;
+  color: #c0d0f0;
+}
+
+
+
 /************************************************************************/
 /*     Perform: Hot Cue + Beat Loop pads                               */
 /************************************************************************/

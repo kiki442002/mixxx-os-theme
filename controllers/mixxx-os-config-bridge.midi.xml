@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MixxxMIDIPreset schemaVersion="1" mixxxVersion="2.3+">
+    <info>
+        <name>mixxx-os Config Bridge</name>
+        <author>mixxx-os</author>
+        <description>Virtual MIDI controller for the mixxx-os Settings tab. Connects to the "mixxx-os Config" port created by the Rust config server. Manages audio output and MIDI controller assignment.</description>
+    </info>
+    <controller id="mixxx-os Config">
+        <scriptfiles>
+            <file functionprefix="MixxxOSConfig" filename="mixxx-os-config-bridge.js"/>
+        </scriptfiles>
+        <controls>
+            <!-- ─── CCs from server → skin (channel 1, 0xB0) ─── -->
+            <control>
+                <description>Latency index</description>
+                <group>[Skin]</group><key>MixxxOSConfig.incomingCC</key>
+                <status>0xB0</status><midino>0x03</midino>
+                <options><Script-Binding/></options>
+            </control>
+            <control>
+                <description>Decks index</description>
+                <group>[Skin]</group><key>MixxxOSConfig.incomingCC</key>
+                <status>0xB0</status><midino>0x04</midino>
+                <options><Script-Binding/></options>
+            </control>
+            <control>
+                <description>Server online</description>
+                <group>[Skin]</group><key>MixxxOSConfig.incomingCC</key>
+                <status>0xB0</status><midino>0x05</midino>
+                <options><Script-Binding/></options>
+            </control>
+            <control>
+                <description>Master output index</description>
+                <group>[Skin]</group><key>MixxxOSConfig.incomingCC</key>
+                <status>0xB0</status><midino>0x10</midino>
+                <options><Script-Binding/></options>
+            </control>
+            <control>
+                <description>Headphone output index</description>
+                <group>[Skin]</group><key>MixxxOSConfig.incomingCC</key>
+                <status>0xB0</status><midino>0x11</midino>
+                <options><Script-Binding/></options>
+            </control>
+            <control>
+                <description>Number of output devices</description>
+                <group>[Skin]</group><key>MixxxOSConfig.incomingCC</key>
+                <status>0xB0</status><midino>0x12</midino>
+                <options><Script-Binding/></options>
+            </control>
+            <control>
+                <description>Number of MIDI devices</description>
+                <group>[Skin]</group><key>MixxxOSConfig.incomingCC</key>
+                <status>0xB0</status><midino>0x20</midino>
+                <options><Script-Binding/></options>
+            </control>
+            <control>
+                <description>MIDI slot 0 state</description>
+                <group>[Skin]</group><key>MixxxOSConfig.incomingCC</key>
+                <status>0xB0</status><midino>0x21</midino>
+                <options><Script-Binding/></options>
+            </control>
+            <control>
+                <description>MIDI slot 1 state</description>
+                <group>[Skin]</group><key>MixxxOSConfig.incomingCC</key>
+                <status>0xB0</status><midino>0x22</midino>
+                <options><Script-Binding/></options>
+            </control>
+            <control>
+                <description>MIDI slot 2 state</description>
+                <group>[Skin]</group><key>MixxxOSConfig.incomingCC</key>
+                <status>0xB0</status><midino>0x23</midino>
+                <options><Script-Binding/></options>
+            </control>
+            <control>
+                <description>MIDI slot 3 state</description>
+                <group>[Skin]</group><key>MixxxOSConfig.incomingCC</key>
+                <status>0xB0</status><midino>0x24</midino>
+                <options><Script-Binding/></options>
+            </control>
+            <control>
+                <description>MIDI slot 0 script index</description>
+                <group>[Skin]</group><key>MixxxOSConfig.incomingCC</key>
+                <status>0xB0</status><midino>0x25</midino>
+                <options><Script-Binding/></options>
+            </control>
+            <control>
+                <description>MIDI slot 1 script index</description>
+                <group>[Skin]</group><key>MixxxOSConfig.incomingCC</key>
+                <status>0xB0</status><midino>0x26</midino>
+                <options><Script-Binding/></options>
+            </control>
+            <control>
+                <description>MIDI slot 2 script index</description>
+                <group>[Skin]</group><key>MixxxOSConfig.incomingCC</key>
+                <status>0xB0</status><midino>0x27</midino>
+                <options><Script-Binding/></options>
+            </control>
+            <control>
+                <description>MIDI slot 3 script index</description>
+                <group>[Skin]</group><key>MixxxOSConfig.incomingCC</key>
+                <status>0xB0</status><midino>0x28</midino>
+                <options><Script-Binding/></options>
+            </control>
+        </controls>
+        <outputs/>
+    </controller>
+</MixxxMIDIPreset>

@@ -140,23 +140,8 @@
               <PushButton>
                 <ObjectName>OSConfigCycleDisplay</ObjectName>
                 <Size>0me,32f</Size>
-                <NumberStates>16</NumberStates>
-                <State><Number>0</Number><Text>Périphérique 1</Text></State>
-                <State><Number>1</Number><Text>Périphérique 2</Text></State>
-                <State><Number>2</Number><Text>Périphérique 3</Text></State>
-                <State><Number>3</Number><Text>Périphérique 4</Text></State>
-                <State><Number>4</Number><Text>Périphérique 5</Text></State>
-                <State><Number>5</Number><Text>Périphérique 6</Text></State>
-                <State><Number>6</Number><Text>Périphérique 7</Text></State>
-                <State><Number>7</Number><Text>Périphérique 8</Text></State>
-                <State><Number>8</Number><Text>Périphérique 9</Text></State>
-                <State><Number>9</Number><Text>Périphérique 10</Text></State>
-                <State><Number>10</Number><Text>Périphérique 11</Text></State>
-                <State><Number>11</Number><Text>Périphérique 12</Text></State>
-                <State><Number>12</Number><Text>Périphérique 13</Text></State>
-                <State><Number>13</Number><Text>Périphérique 14</Text></State>
-                <State><Number>14</Number><Text>Périphérique 15</Text></State>
-                <State><Number>15</Number><Text>—</Text></State>
+                <NumberStates><!-- AUDIO_COUNT --></NumberStates>
+<!-- AUDIO_STATES -->
                 <Connection>
                   <ConfigKey persist="false">[Skin],os_master_out</ConfigKey>
                   <ConnectValueFromWidget>false</ConnectValueFromWidget>
@@ -188,23 +173,8 @@
               <PushButton>
                 <ObjectName>OSConfigCycleDisplay</ObjectName>
                 <Size>0me,32f</Size>
-                <NumberStates>16</NumberStates>
-                <State><Number>0</Number><Text>Périphérique 1</Text></State>
-                <State><Number>1</Number><Text>Périphérique 2</Text></State>
-                <State><Number>2</Number><Text>Périphérique 3</Text></State>
-                <State><Number>3</Number><Text>Périphérique 4</Text></State>
-                <State><Number>4</Number><Text>Périphérique 5</Text></State>
-                <State><Number>5</Number><Text>Périphérique 6</Text></State>
-                <State><Number>6</Number><Text>Périphérique 7</Text></State>
-                <State><Number>7</Number><Text>Périphérique 8</Text></State>
-                <State><Number>8</Number><Text>Périphérique 9</Text></State>
-                <State><Number>9</Number><Text>Périphérique 10</Text></State>
-                <State><Number>10</Number><Text>Périphérique 11</Text></State>
-                <State><Number>11</Number><Text>Périphérique 12</Text></State>
-                <State><Number>12</Number><Text>Périphérique 13</Text></State>
-                <State><Number>13</Number><Text>Périphérique 14</Text></State>
-                <State><Number>14</Number><Text>Périphérique 15</Text></State>
-                <State><Number>15</Number><Text>—</Text></State>
+                <NumberStates><!-- SCRIPT_COUNT --></NumberStates>
+<!-- SCRIPT_STATES -->
                 <Connection>
                   <ConfigKey persist="false">[Skin],os_headphone_out</ConfigKey>
                   <ConnectValueFromWidget>false</ConnectValueFromWidget>
@@ -274,23 +244,8 @@
               <PushButton>
                 <ObjectName>OSConfigCycleDisplay</ObjectName>
                 <Size>0me,32f</Size>
-                <NumberStates>16</NumberStates>
-                <State><Number>0</Number><Text>Mapping 1</Text></State>
-                <State><Number>1</Number><Text>Mapping 2</Text></State>
-                <State><Number>2</Number><Text>Mapping 3</Text></State>
-                <State><Number>3</Number><Text>Mapping 4</Text></State>
-                <State><Number>4</Number><Text>Mapping 5</Text></State>
-                <State><Number>5</Number><Text>Mapping 6</Text></State>
-                <State><Number>6</Number><Text>Mapping 7</Text></State>
-                <State><Number>7</Number><Text>Mapping 8</Text></State>
-                <State><Number>8</Number><Text>Mapping 9</Text></State>
-                <State><Number>9</Number><Text>Mapping 10</Text></State>
-                <State><Number>10</Number><Text>Mapping 11</Text></State>
-                <State><Number>11</Number><Text>Mapping 12</Text></State>
-                <State><Number>12</Number><Text>Mapping 13</Text></State>
-                <State><Number>13</Number><Text>Mapping 14</Text></State>
-                <State><Number>14</Number><Text>Mapping 15</Text></State>
-                <State><Number>15</Number><Text>—</Text></State>
+                <NumberStates><!-- SCRIPT_COUNT --></NumberStates>
+<!-- SCRIPT_STATES -->
                 <Connection>
                   <ConfigKey persist="false">[Skin],os_midi_0_script</ConfigKey>
                   <ConnectValueFromWidget>false</ConnectValueFromWidget>
@@ -347,23 +302,8 @@
               <PushButton>
                 <ObjectName>OSConfigCycleDisplay</ObjectName>
                 <Size>0me,32f</Size>
-                <NumberStates>16</NumberStates>
-                <State><Number>0</Number><Text>Mapping 1</Text></State>
-                <State><Number>1</Number><Text>Mapping 2</Text></State>
-                <State><Number>2</Number><Text>Mapping 3</Text></State>
-                <State><Number>3</Number><Text>Mapping 4</Text></State>
-                <State><Number>4</Number><Text>Mapping 5</Text></State>
-                <State><Number>5</Number><Text>Mapping 6</Text></State>
-                <State><Number>6</Number><Text>Mapping 7</Text></State>
-                <State><Number>7</Number><Text>Mapping 8</Text></State>
-                <State><Number>8</Number><Text>Mapping 9</Text></State>
-                <State><Number>9</Number><Text>Mapping 10</Text></State>
-                <State><Number>10</Number><Text>Mapping 11</Text></State>
-                <State><Number>11</Number><Text>Mapping 12</Text></State>
-                <State><Number>12</Number><Text>Mapping 13</Text></State>
-                <State><Number>13</Number><Text>Mapping 14</Text></State>
-                <State><Number>14</Number><Text>Mapping 15</Text></State>
-                <State><Number>15</Number><Text>—</Text></State>
+                <NumberStates><!-- SCRIPT_COUNT --></NumberStates>
+<!-- SCRIPT_STATES -->
                 <Connection>
                   <ConfigKey persist="false">[Skin],os_midi_1_script</ConfigKey>
                   <ConnectValueFromWidget>false</ConnectValueFromWidget>
@@ -418,23 +358,8 @@
               <PushButton>
                 <ObjectName>OSConfigCycleDisplay</ObjectName>
                 <Size>0me,32f</Size>
-                <NumberStates>16</NumberStates>
-                <State><Number>0</Number><Text>Mapping 1</Text></State>
-                <State><Number>1</Number><Text>Mapping 2</Text></State>
-                <State><Number>2</Number><Text>Mapping 3</Text></State>
-                <State><Number>3</Number><Text>Mapping 4</Text></State>
-                <State><Number>4</Number><Text>Mapping 5</Text></State>
-                <State><Number>5</Number><Text>Mapping 6</Text></State>
-                <State><Number>6</Number><Text>Mapping 7</Text></State>
-                <State><Number>7</Number><Text>Mapping 8</Text></State>
-                <State><Number>8</Number><Text>Mapping 9</Text></State>
-                <State><Number>9</Number><Text>Mapping 10</Text></State>
-                <State><Number>10</Number><Text>Mapping 11</Text></State>
-                <State><Number>11</Number><Text>Mapping 12</Text></State>
-                <State><Number>12</Number><Text>Mapping 13</Text></State>
-                <State><Number>13</Number><Text>Mapping 14</Text></State>
-                <State><Number>14</Number><Text>Mapping 15</Text></State>
-                <State><Number>15</Number><Text>—</Text></State>
+                <NumberStates><!-- SCRIPT_COUNT --></NumberStates>
+<!-- SCRIPT_STATES -->
                 <Connection>
                   <ConfigKey persist="false">[Skin],os_midi_2_script</ConfigKey>
                   <ConnectValueFromWidget>false</ConnectValueFromWidget>
@@ -489,23 +414,8 @@
               <PushButton>
                 <ObjectName>OSConfigCycleDisplay</ObjectName>
                 <Size>0me,32f</Size>
-                <NumberStates>16</NumberStates>
-                <State><Number>0</Number><Text>Mapping 1</Text></State>
-                <State><Number>1</Number><Text>Mapping 2</Text></State>
-                <State><Number>2</Number><Text>Mapping 3</Text></State>
-                <State><Number>3</Number><Text>Mapping 4</Text></State>
-                <State><Number>4</Number><Text>Mapping 5</Text></State>
-                <State><Number>5</Number><Text>Mapping 6</Text></State>
-                <State><Number>6</Number><Text>Mapping 7</Text></State>
-                <State><Number>7</Number><Text>Mapping 8</Text></State>
-                <State><Number>8</Number><Text>Mapping 9</Text></State>
-                <State><Number>9</Number><Text>Mapping 10</Text></State>
-                <State><Number>10</Number><Text>Mapping 11</Text></State>
-                <State><Number>11</Number><Text>Mapping 12</Text></State>
-                <State><Number>12</Number><Text>Mapping 13</Text></State>
-                <State><Number>13</Number><Text>Mapping 14</Text></State>
-                <State><Number>14</Number><Text>Mapping 15</Text></State>
-                <State><Number>15</Number><Text>—</Text></State>
+                <NumberStates><!-- SCRIPT_COUNT --></NumberStates>
+<!-- SCRIPT_STATES -->
                 <Connection>
                   <ConfigKey persist="false">[Skin],os_midi_3_script</ConfigKey>
                   <ConnectValueFromWidget>false</ConnectValueFromWidget>
@@ -545,6 +455,75 @@
         <Layout>horizontal</Layout>
         <Size>0me,2f</Size>
         <Children/>
+      </WidgetGroup>
+
+      <!-- ===== PISTE ACTIVE ===== -->
+      <WidgetGroup>
+        <ObjectName>SettingsSection</ObjectName>
+        <Layout>vertical</Layout>
+        <Children>
+          <WidgetGroup>
+            <ObjectName>SettingsSectionHeader</ObjectName>
+            <Layout>horizontal</Layout>
+            <Size>0me,30f</Size>
+            <Children>
+              <Label>
+                <ObjectName>SettingsSectionTitle</ObjectName>
+                <Text>PISTE ACTIVE</Text>
+              </Label>
+            </Children>
+          </WidgetGroup>
+
+          <WidgetGroup>
+            <ObjectName>SettingsInfoRow</ObjectName>
+            <Layout>horizontal</Layout>
+            <Size>0me,22f</Size>
+            <Children>
+              <Label>
+                <ObjectName>SettingsInfoLabel</ObjectName>
+                <Text>Coupe le crossfader vers la piste sélectionnée :</Text>
+                <Size>0me,22f</Size>
+              </Label>
+            </Children>
+          </WidgetGroup>
+
+          <PushButton>
+            <ObjectName>DeckItem0</ObjectName>
+            <Size>0me,40f</Size>
+            <NumberStates>2</NumberStates>
+            <State><Number>0</Number><Text>  Piste 1</Text></State>
+            <State><Number>1</Number><Text>  &#10003; Piste 1</Text></State>
+            <Connection>
+              <ConfigKey>[Skin],select_deck_1</ConfigKey>
+              <ConnectValueFromWidget>true</ConnectValueFromWidget>
+              <ConnectValueToWidget>false</ConnectValueToWidget>
+            </Connection>
+            <Connection>
+              <ConfigKey persist="false">[Skin],deck_active_1</ConfigKey>
+              <ConnectValueFromWidget>false</ConnectValueFromWidget>
+              <ConnectValueToWidget>true</ConnectValueToWidget>
+            </Connection>
+          </PushButton>
+
+          <PushButton>
+            <ObjectName>DeckItem1</ObjectName>
+            <Size>0me,40f</Size>
+            <NumberStates>2</NumberStates>
+            <State><Number>0</Number><Text>  Piste 2</Text></State>
+            <State><Number>1</Number><Text>  &#10003; Piste 2</Text></State>
+            <Connection>
+              <ConfigKey>[Skin],select_deck_2</ConfigKey>
+              <ConnectValueFromWidget>true</ConnectValueFromWidget>
+              <ConnectValueToWidget>false</ConnectValueToWidget>
+            </Connection>
+            <Connection>
+              <ConfigKey persist="false">[Skin],deck_active_2</ConfigKey>
+              <ConnectValueFromWidget>false</ConnectValueFromWidget>
+              <ConnectValueToWidget>true</ConnectValueToWidget>
+            </Connection>
+          </PushButton>
+
+        </Children>
       </WidgetGroup>
 
     </Children>

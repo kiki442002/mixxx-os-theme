@@ -24,6 +24,10 @@
             <SetVariable name="tab_name">Browse</SetVariable>
             <SetVariable name="config_key">library</SetVariable>
           </Template>
+          <Template src="skin:tab.xml">
+            <SetVariable name="tab_name">Settings</SetVariable>
+            <SetVariable name="config_key">settings</SetVariable>
+          </Template>
           <!-- Fixed 180px Perform slot — always holds space, button hides inside -->
           <WidgetGroup>
             <ObjectName>PerformTabSlot</ObjectName>
